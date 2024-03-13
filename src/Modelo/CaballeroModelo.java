@@ -1,5 +1,5 @@
 package Modelo;
 
-public class CaballeroModelo {
+public class CaballeroModelo extends Conector{
 
 }

@@ -1,5 +1,5 @@
 package Modelo;
 
-public class ArmaModelo {
+public class ArmaModelo extends Conector{
 
 }
