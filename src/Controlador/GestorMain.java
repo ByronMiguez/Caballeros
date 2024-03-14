@@ -21,7 +21,7 @@ public class GestorMain {
 			switch (opcion) {
 			
 			case Menu.MENU_ARMA :
-					Menu.menuArma();
+					GestorArma.run();
 			break;
 			case Menu.MENU_ESCUDERO :
 					//menuescudero
