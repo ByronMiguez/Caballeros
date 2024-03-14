@@ -4,7 +4,8 @@ public class Arma {
 
 	private String tipo;
 	private int daño;
-	
+	private int idArma;
+
 	public Arma() {
 		
 	}
@@ -27,11 +28,19 @@ public class Arma {
 	public void setDaño(int daño) {
 		this.daño = daño;
 	}
+	
+	public int getIdArma() {
+		return idArma;
+	}
+
+	public void setIdArma(int idArma) {
+		this.idArma = idArma;
+	}
 
 	@Override
 	public String toString() {
-		return "Arma [tipo=" + tipo + ", daño=" + daño + "]";
+		return "Arma [tipo=" + tipo + ", daño=" + daño + ", idArma=" + idArma + "]";
 	}
-	
+
 	
 }
