@@ -5,8 +5,6 @@ public class Arma {
 	private int idArma;
 	private String tipo;
 	private int daño;
-	
-
 	public Arma() {
 		
 	}
@@ -42,7 +40,7 @@ public class Arma {
 		return "Arma [tipo=" + tipo + ", daño=" + daño + ", idArma=" + idArma + "]";
 	}
 
+
 	
-	
-	
+
 }
