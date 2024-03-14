@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-03-2024 a las 14:05:36
+-- Tiempo de generación: 14-03-2024 a las 10:17:54
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -40,15 +40,15 @@ CREATE TABLE `arma` (
 --
 
 CREATE TABLE `caballero` (
-  `Nombre` varchar(255) NOT NULL,
   `Id_caballero` int(11) NOT NULL,
+  `Nombre` varchar(255) NOT NULL,
+  `Experiencia` int(11) NOT NULL,
+  `Daño_caballero` int(11) NOT NULL,
+  `Velocidad_caballero` int(11) NOT NULL,
   `Id_arma` int(11) NOT NULL,
   `Id_escudo` int(11) NOT NULL,
   `Id_caballo` int(11) NOT NULL,
-  `Id_escudero` int(11) NOT NULL,
-  `Experiencia` int(11) NOT NULL,
-  `Daño_caballero` int(11) NOT NULL,
-  `Velocidad_caballero` int(11) NOT NULL
+  `Id_escudero` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
@@ -58,11 +58,10 @@ CREATE TABLE `caballero` (
 --
 
 CREATE TABLE `caballo` (
+  `Id_caballo` int(11) NOT NULL,
   `Nombre` varchar(255) NOT NULL,
   `Velocidad` int(11) NOT NULL,
-  `Resistencia` int(11) NOT NULL,
-  `Id_caballo` int(11) NOT NULL,
-  `Id_caballero` int(11) NOT NULL
+  `Resistencia` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
@@ -72,9 +71,9 @@ CREATE TABLE `caballo` (
 --
 
 CREATE TABLE `escudero` (
+  `Id_escudero` int(11) NOT NULL,
   `Nombre` varchar(255) NOT NULL,
-  `Experiencia` int(11) NOT NULL,
-  `Id_escudero` int(11) NOT NULL
+  `Experiencia` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
@@ -84,9 +83,23 @@ CREATE TABLE `escudero` (
 --
 
 CREATE TABLE `escudo` (
+  `Id_escudo` int(11) NOT NULL,
   `Tipo` varchar(255) NOT NULL,
-  `Defensa` int(11) NOT NULL,
-  `Id_escudo` int(11) NOT NULL
+  `Defensa` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `lucha`
+--
+
+CREATE TABLE `lucha` (
+  `Id` int(11) NOT NULL,
+  `Id_caballero1` int(11) NOT NULL,
+  `id_caballero2` int(11) NOT NULL,
+  `Fecha` date NOT NULL,
+  `Ganador` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
@@ -128,6 +141,48 @@ ALTER TABLE `escudo`
   ADD PRIMARY KEY (`Id_escudo`);
 
 --
+-- Indices de la tabla `lucha`
+--
+ALTER TABLE `lucha`
+  ADD PRIMARY KEY (`Id`,`Id_caballero1`,`id_caballero2`,`Fecha`),
+  ADD KEY `Id_caballero1` (`Id_caballero1`,`id_caballero2`),
+  ADD KEY `fk_lucha_caballero2` (`id_caballero2`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `arma`
+--
+ALTER TABLE `arma`
+  MODIFY `Id_arma` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `caballero`
+--
+ALTER TABLE `caballero`
+  MODIFY `Id_caballero` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `caballo`
+--
+ALTER TABLE `caballo`
+  MODIFY `Id_caballo` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `escudero`
+--
+ALTER TABLE `escudero`
+  MODIFY `Id_escudero` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `escudo`
+--
+ALTER TABLE `escudo`
+  MODIFY `Id_escudo` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- Restricciones para tablas volcadas
 --
 
@@ -139,8 +194,16 @@ ALTER TABLE `caballero`
   ADD CONSTRAINT `fk_caballero_caballo` FOREIGN KEY (`Id_caballo`) REFERENCES `caballo` (`Id_caballo`),
   ADD CONSTRAINT `fk_caballero_escudero` FOREIGN KEY (`Id_escudero`) REFERENCES `escudero` (`Id_Escudero`),
   ADD CONSTRAINT `fk_caballero_escudo` FOREIGN KEY (`Id_escudo`) REFERENCES `escudo` (`Id_escudo`);
+
+--
+-- Filtros para la tabla `lucha`
+--
+ALTER TABLE `lucha`
+  ADD CONSTRAINT `fk_lucha_caballero1` FOREIGN KEY (`Id_caballero1`) REFERENCES `caballero` (`Id_caballero`),
+  ADD CONSTRAINT `fk_lucha_caballero2` FOREIGN KEY (`id_caballero2`) REFERENCES `caballero` (`Id_caballero`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
