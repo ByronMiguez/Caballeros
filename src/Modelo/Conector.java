@@ -8,11 +8,11 @@ public class Conector {
 	
 	public static  Connection cn;
 	private static final String HOST="localhost";
-	private static final String BBDD="caballero";
+	private static final String BBDD="caballeros";
 	private static final String USER="root";
 	private static final String PASSWORD="";
 	
-	public  void conectar() {
+	public static void conectar() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			String url = "jdbc:mysql://localhost/biblioteca/";
@@ -27,7 +27,7 @@ public class Conector {
 		}
 	}
 	
-	public void cerrar() {
+	public static void cerrar() {
 		try {
 			cn.close();
 		} catch (SQLException e) {
@@ -36,7 +36,7 @@ public class Conector {
 		}
 	}
 
-	public Connection getCn() {
+	public static Connection getCn() {
 		return cn;
 	}
 

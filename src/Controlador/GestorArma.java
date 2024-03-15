@@ -27,9 +27,10 @@ public class GestorArma {
 			switch (opcion) {
 			
 			case Menu.INSERT_ARMA:
+				ArmaModelo.conectar();
 				arma = Formulario.leerArma(scan);
-				ArmaModelo.insertarArma(arma);
-				
+				ArmaModelo.insertArma(arma);
+				ArmaModelo.cerrar();
 			break;
 			case Menu.DELETE_ARMA :
 					
