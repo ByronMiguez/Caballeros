@@ -3,6 +3,7 @@ package Vista;
 import java.util.ArrayList;
 
 import Modelo.Arma;
+import Modelo.Escudo;
 
 public class Visor {
 	
@@ -22,10 +23,18 @@ public class Visor {
 		System.out.println("Usted ha seleccionado la opción de mostrar todas las filas");	
 	}
 	
-	public static void mostrarArmas(ArrayList<Arma> lista) {
+	public static void mostrarArmas(ArrayList<Arma> listaArmas) {
 		
-		for (Arma arma : lista) {
+		for (Arma arma : listaArmas) {
 			System.out.println(arma);
 		}
+	}
+
+	public static void mostrarEscudos(ArrayList<Escudo> listaEscudos) {
+		
+		for (Escudo escudo : listaEscudos) {
+			System.out.println(escudo);
+		}
+		
 	}
 }

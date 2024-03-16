@@ -24,7 +24,7 @@ public class GestorMain {
 					GestorArma.run();
 			break;
 			case Menu.MENU_ESCUDERO :
-					//menuescudero
+					GestorEscudo.run();
 			break;
 			case Menu.MENU_CABALLERO :
 					//menucaballero
