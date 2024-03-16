@@ -10,7 +10,7 @@ public class ArmaModelo extends Conector{
 
 	public static void insertArma(Arma arma) {
 		
-		String sql= "insert into arma(tipo, danio) values(?,?)";
+		String sql= "insert into armas(tipo, danio) values(?,?)";
 		
 		try {
 			PreparedStatement pst = cn.prepareStatement(sql);
@@ -25,8 +25,8 @@ public class ArmaModelo extends Conector{
 	}
 	public static void deleteArma(int idArma) {
 		
-		String sql ="delete from arma where id=?";
-		 
+		String sql ="delete from armas where id=?";
+		
 		try {
 			PreparedStatement pst = cn.prepareStatement(sql);
 			pst.setInt(1, idArma);
@@ -40,7 +40,7 @@ public class ArmaModelo extends Conector{
 	//Recibe un id y un arma, se modifica la fila que corresponda con el id dado, con la información del arma recibido.
 	public static void updateArma(int id, Arma arma) {
 		
-		String sql ="update arma set tipo=?,danio=? where id=?";
+		String sql ="update armas set tipo=?,danio=? where id=?";
 		
 		try {
 			PreparedStatement pst = cn.prepareStatement(sql);
@@ -57,7 +57,7 @@ public class ArmaModelo extends Conector{
 	public  ArrayList<Arma> mostrarArmas() {
 		
 		ArrayList<Arma> listaArmas = new ArrayList<>();
-		String sql = "select * from arma";
+		String sql = "select * from armas";
 		
 		try {
 			Statement st = cn.createStatement();

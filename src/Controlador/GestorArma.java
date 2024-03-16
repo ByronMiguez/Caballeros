@@ -17,7 +17,6 @@ public class GestorArma {
 		
 		Scanner scan = new Scanner(System.in);
 		int opcion;
-		Arma arma = new Arma();
 		
 		do {
 			Menu.menuArma();
@@ -28,8 +27,7 @@ public class GestorArma {
 			
 			case Menu.INSERT_ARMA:
 				ArmaModelo.conectar();
-				arma = Formulario.leerArma(scan);
-				ArmaModelo.insertArma(arma);
+				ArmaModelo.insertArma(Formulario.leerArma(scan));
 				ArmaModelo.cerrar();
 			break;
 			case Menu.DELETE_ARMA :
