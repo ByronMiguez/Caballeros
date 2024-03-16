@@ -31,7 +31,9 @@ public class GestorArma {
 				ArmaModelo.cerrar();
 			break;
 			case Menu.DELETE_ARMA :
-					
+				ArmaModelo.conectar();
+				ArmaModelo.deleteArma(Formulario.leerIdArma(scan));
+				ArmaModelo.cerrar();
 			break;
 			case Menu.UPDATE_ARMA :
 					

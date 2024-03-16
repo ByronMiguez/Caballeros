@@ -21,6 +21,14 @@ public class Formulario {
 		
 		return arma;	
 	}
+
+	public static int leerIdArma(Scanner scan) {
+
+		System.out.println("Introduce el numero id del arma que quieres eliminar");
+		int idArma= Integer.parseInt(scan.nextLine());
+		
+		return idArma;
+	}
 }
 
 

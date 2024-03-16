@@ -25,7 +25,7 @@ public class ArmaModelo extends Conector{
 	}
 	public static void deleteArma(int idArma) {
 		
-		String sql ="delete from armas where id=?";
+		String sql ="delete from armas where Id_arma=?";
 
 		try {
 			PreparedStatement pst = cn.prepareStatement(sql);
