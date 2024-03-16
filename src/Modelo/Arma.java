@@ -10,25 +10,28 @@ public class Arma {
 		
 	}
 	
-	public Arma(String tipo, int danio) {
-		super();
+	public Arma(String tipo, int danio, int idArma) {
 		this.tipo = tipo;
 		this.danio = danio;
+		this.idArma = idArma;
 	}
-	
+
 	public String getTipo() {
 		return tipo;
 	}
+
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
+
 	public int getDanio() {
 		return danio;
 	}
+
 	public void setDanio(int danio) {
 		this.danio = danio;
 	}
-	
+
 	public int getIdArma() {
 		return idArma;
 	}
@@ -39,8 +42,10 @@ public class Arma {
 
 	@Override
 	public String toString() {
-		return "Arma [tipo=" + tipo + ", danio=" + danio + ", idArma=" + idArma + "]";
+		return "Arma [tipo=" + tipo + ", danio=" + danio + ", idArma=" + idArma + ", getTipo()=" + getTipo()
+				+ ", getDanio()=" + getDanio() + ", getIdArma()=" + getIdArma() + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
-
 	
+
 }
