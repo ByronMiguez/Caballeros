@@ -6,5 +6,5 @@ public class Caballero {
 	private Arma arma;
 	private Escudo escudo;
 	private int experiencia;
-	private int dañoCaballero;
+	private int danioCaballero;
 }
