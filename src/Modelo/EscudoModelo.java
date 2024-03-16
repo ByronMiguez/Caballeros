@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import Vista.Visor;
+
 public class EscudoModelo extends Conector{
 
 	public static void insertEscudo(Escudo escudo) {
@@ -37,7 +39,6 @@ public class EscudoModelo extends Conector{
 			System.out.println("error sql eliminar");
 			e.printStackTrace();
 		}
-		
 	}
 
 	public static void updateEscudo(int id, Escudo escudo) {
@@ -50,6 +51,7 @@ public class EscudoModelo extends Conector{
 			pst.setInt(2, escudo.getDefensa());
 			pst.setInt(3, id);
 			pst.execute();
+			Visor.updateCompletado();
 			
 		} catch (SQLException e) {
 			System.out.println("error sql modificar");
@@ -80,8 +82,7 @@ public class EscudoModelo extends Conector{
 			System.out.println("error sql mostrar");			
 			e.printStackTrace();
 		}
-		
-		
+			
 		return null;
 	}
 }

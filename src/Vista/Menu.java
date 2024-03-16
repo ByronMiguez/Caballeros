@@ -51,6 +51,12 @@ public class Menu {
 	public static void menuGeneral() {
 		
 		System.out.println(MENU_ARMA +". Para acceder al menú de Armas");
+		System.out.println(MENU_ESCUDERO +". Para acceder al menú de Escuderos");
+		System.out.println(MENU_CABALLERO +". Para acceder al menú de Caballeros");
+		System.out.println(MENU_CABALLO +". Para acceder al menú de Caballos");
+		System.out.println(MENU_ESCUDO +". Para acceder al menú de Escudos");
+		System.out.println(MENU_LUCHA +". Para acceder al menú de Luchas");
+		System.out.println(SALIR +". Salir");
 		
 	}
 	

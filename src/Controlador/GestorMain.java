@@ -24,26 +24,30 @@ public class GestorMain {
 					GestorArma.run();
 			break;
 			case Menu.MENU_ESCUDERO :
-					GestorEscudo.run();
+					GestorEscudero.run();
 			break;
 			case Menu.MENU_CABALLERO :
-					//menucaballero
+					GestorCaballero.run();
 			break;
 			case Menu.MENU_CABALLO :
-					//menucaballo
+					GestorCaballo.run();
+					
 			break;
 			case Menu.MENU_ESCUDO :
-					//menuescudo
+					GestorEscudo.run();			
 			break;
 			case Menu.MENU_LUCHA :
-					//menulucha
+					GestorLucha.run();
 			break;
 			
 			default:
 				break;
 			}
 		
-		} while(opcion!=0);
+		} while(opcion!=0);{
+			System.out.println("ADIOS");
+	        scan.close();
+		}
 		
 	}
 }
