@@ -16,9 +16,6 @@ public class Formulario {
 		System.out.println("Introduce el valor del daño");
 		arma.setDanio(Integer.parseInt(scan.nextLine()));
 		
-		System.out.println("Introduce el número id de arma");
-		arma.setIdArma(Integer.parseInt(scan.nextLine()));
-		
 		return arma;	
 	}
 

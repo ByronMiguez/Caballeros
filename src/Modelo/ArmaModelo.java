@@ -40,7 +40,7 @@ public class ArmaModelo extends Conector{
 	//Recibe un id y un arma, se modifica la fila que corresponda con el id dado, con la información del arma recibido.
 	public static void updateArma(int id, Arma arma) {
 		
-		String sql ="update armas set tipo=?,danio=? where id=?";
+		String sql ="update armas set tipo=?,danio=? where Id_arma=?";
 		
 		try {
 			PreparedStatement pst = cn.prepareStatement(sql);
@@ -54,7 +54,7 @@ public class ArmaModelo extends Conector{
 			e.printStackTrace();
 		}	
 	}
-	public  ArrayList<Arma> mostrarArmas() {
+	public static  ArrayList<Arma> selectAllArmas() {
 		
 		ArrayList<Arma> listaArmas = new ArrayList<>();
 		String sql = "select * from armas";
@@ -72,6 +72,7 @@ public class ArmaModelo extends Conector{
 				
 				listaArmas.add(arma);
 			}
+		return listaArmas;
 			
 		} catch (SQLException e) {
 			System.out.println("error sql mostrar");			
@@ -79,6 +80,7 @@ public class ArmaModelo extends Conector{
 		}
 		return null;
 	}
+
 	
 	
 
