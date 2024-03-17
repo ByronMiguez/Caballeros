@@ -84,4 +84,33 @@ public class CaballoModelo extends Conector{
 		return null;
 	}
 
+	public static Caballo getUnCaballo (int idCaballo ) {
+		
+		String sql ="SELECT * FROM caballos WHERE Id_caballo=?";
+
+		try {
+			
+			PreparedStatement pst = cn.prepareStatement(sql);
+			
+			pst.setInt(1, idCaballo);
+		
+			ResultSet rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				Caballo UnCaballo = new Caballo();
+				UnCaballo.setIdCaballo(rs.getInt(1));
+				UnCaballo.setNombre(rs.getString(2));
+				UnCaballo.setVelocidad(rs.getInt(3));
+				UnCaballo.setResistencia(rs.getInt(4));
+				
+				return UnCaballo;
+			}
+			
+			
+		} catch (SQLException e) {
+			System.out.println("error sql eliminar");
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

@@ -2,9 +2,10 @@ package Modelo;
 
 public class Arma {
 
+	private int idArma;
 	private String tipo;
 	private int danio;
-	private int idArma;
+	
 
 	public Arma() {
 		

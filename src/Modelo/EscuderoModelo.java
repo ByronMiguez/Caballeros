@@ -86,4 +86,34 @@ public class EscuderoModelo extends Conector{
 		return null;
 		
 	}
+	
+	public static Escudero getUnEscudero (int idEscudero ) {
+		
+		String sql ="SELECT * FROM escuderos WHERE Id_escudero=?";
+
+		try {
+			
+			PreparedStatement pst = cn.prepareStatement(sql);
+			
+			pst.setInt(1, idEscudero);
+		
+			ResultSet rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				Escudero UnEscudero = new Escudero();
+				UnEscudero.setIdEscudero(rs.getInt(1));
+				UnEscudero.setNombre(rs.getString(2));
+				UnEscudero.setExperiencia(rs.getInt(3));
+				
+				return UnEscudero;
+			}
+			
+			
+		} catch (SQLException e) {
+			System.out.println("error sql eliminar");
+			e.printStackTrace();
+		}
+		return null;
+	
+	}
 }

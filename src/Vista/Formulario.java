@@ -3,10 +3,14 @@ package Vista;
 import java.util.Scanner;
 
 import Modelo.Arma;
+import Modelo.ArmaModelo;
 import Modelo.Caballero;
 import Modelo.Caballo;
+import Modelo.CaballoModelo;
 import Modelo.Escudero;
+import Modelo.EscuderoModelo;
 import Modelo.Escudo;
+import Modelo.EscudoModelo;
 
 public class Formulario {
 
@@ -68,16 +72,16 @@ public class Formulario {
 		caballero.setVelocidadCaballero(Integer.parseInt(scan.nextLine()));
 		
 		System.out.println("Introduce el arma del caballero");
-		caballero.getArma().setIdArma(Integer.parseInt(scan.nextLine()));
+		caballero.setArma(ArmaModelo.getUnArma(leerIdArma(scan)));
 		
 		System.out.println("Introduce el escudo del caballero");
-		caballero.getEscudo().setIdEscudo(Integer.parseInt(scan.nextLine()));
+		caballero.setEscudo(EscudoModelo.getUnEscudo(leerIdEscudo(scan)));
 		
 		System.out.println("Introduce el caballo del caballero");
-		caballero.getCaballo().setIdCaballo(Integer.parseInt(scan.nextLine()));
+		caballero.setCaballo(CaballoModelo.getUnCaballo(leerIdCaballo(scan)));
 		
 		System.out.println("Introduce el escudero del caballero");
-		caballero.getEscudero().setIdEscudero(Integer.parseInt(scan.nextLine()));
+		caballero.setEscudero(EscuderoModelo.getUnEscudero(leerIdEscudero(scan)));
 		
 		return caballero;
 	}
@@ -104,6 +108,38 @@ public class Formulario {
 		int id= Integer.parseInt(scan.nextLine());
 		
 		return id;
+	}
+	
+	public static int leerIdArma(Scanner scan) {
+
+		System.out.println("Introduce el numero id del arma");
+		int idArma= Integer.parseInt(scan.nextLine());
+		
+		return idArma;
+	}
+	
+	public static int leerIdEscudo(Scanner scan) {
+		
+		System.out.println("Introduce el numero id del escudo");
+		int idEscudo= Integer.parseInt(scan.nextLine());
+		
+		return idEscudo;
+	}
+	
+	public static int leerIdCaballo(Scanner scan) {
+		
+		System.out.println("Introduce el numero id del caballo");
+		int idCaballo= Integer.parseInt(scan.nextLine());
+		
+		return idCaballo;
+	}
+	
+	public static int leerIdEscudero(Scanner scan) {
+		
+		System.out.println("Introduce el numero id del escudero");
+		int idEscudero= Integer.parseInt(scan.nextLine());
+		
+		return idEscudero;
 	}
 }
 

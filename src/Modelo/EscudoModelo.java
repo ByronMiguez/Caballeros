@@ -85,4 +85,33 @@ public class EscudoModelo extends Conector{
 			
 		return null;
 	}
+	
+	public static Escudo getUnEscudo (int idEscudo ) {
+		
+		String sql ="SELECT * FROM escudos WHERE Id_escudo=?";
+
+		try {
+			
+			PreparedStatement pst = cn.prepareStatement(sql);
+			
+			pst.setInt(1, idEscudo);
+		
+			ResultSet rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				Escudo UnEscudo = new Escudo();
+				UnEscudo.setIdEscudo(rs.getInt(1));
+				UnEscudo.setTipo(rs.getString(2));
+				UnEscudo.setDefensa(rs.getInt(3));
+	
+				return UnEscudo;
+			}
+			
+			
+		} catch (SQLException e) {
+			System.out.println("error sql eliminar");
+			e.printStackTrace();
+		}
+		return null;
+	}
 }
