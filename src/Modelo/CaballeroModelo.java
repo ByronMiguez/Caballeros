@@ -67,7 +67,7 @@ public class CaballeroModelo extends Conector{
 	}
 
 	public static ArrayList<Caballero> selectAllCaballeros() {
-		ArrayList<Caballero> listaCaballero = new ArrayList<>();
+		ArrayList<Caballero> listaCaballeros = new ArrayList<>();
 		String sql = "select * from caballeros";
 		
 		try {
@@ -82,14 +82,14 @@ public class CaballeroModelo extends Conector{
 				caballero.setExperiencia(rs.getInt(3));
 				caballero.setDanioCaballero(rs.getInt(4));
 				caballero.setVelocidadCaballero(rs.getInt(5));
-				caballero.getArma().setIdArma(rs.getInt(6));
-				caballero.getEscudo().setIdEscudo(rs.getInt(7));
-				caballero.getCaballo().setIdCaballo(rs.getInt(8));
-				caballero.getEscudero().setIdEscudero(rs.getInt(9));
+				caballero.setArma(ArmaModelo.getUnArma(rs.getInt(6)));
+				caballero.setEscudo(EscudoModelo.getUnEscudo(rs.getInt(7)));
+				caballero.setCaballo(CaballoModelo.getUnCaballo(rs.getInt(7)));
+				caballero.setEscudero(EscuderoModelo.getUnEscudero(rs.getInt(7)));
 				
-				listaCaballero.add(caballero);
+				listaCaballeros.add(caballero);
 			}
-		return listaCaballero;
+		return listaCaballeros;
 			
 		} catch (SQLException e) {
 			System.out.println("error sql mostrar");			

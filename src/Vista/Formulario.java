@@ -71,16 +71,16 @@ public class Formulario {
 		System.out.println("Introduce la velocidad del caballero");
 		caballero.setVelocidadCaballero(Integer.parseInt(scan.nextLine()));
 		
-		System.out.println("Introduce el arma del caballero");
+		System.out.println("Introduce el arma del caballero (id)");
 		caballero.setArma(ArmaModelo.getUnArma(leerIdArma(scan)));
 		
-		System.out.println("Introduce el escudo del caballero");
+		System.out.println("Introduce el escudo del caballero (id)");
 		caballero.setEscudo(EscudoModelo.getUnEscudo(leerIdEscudo(scan)));
 		
-		System.out.println("Introduce el caballo del caballero");
+		System.out.println("Introduce el caballo del caballero (id)");
 		caballero.setCaballo(CaballoModelo.getUnCaballo(leerIdCaballo(scan)));
 		
-		System.out.println("Introduce el escudero del caballero");
+		System.out.println("Introduce el escudero del caballero (id)");
 		caballero.setEscudero(EscuderoModelo.getUnEscudero(leerIdEscudero(scan)));
 		
 		return caballero;
@@ -101,7 +101,7 @@ public class Formulario {
 		return caballo;
 	}
 	
-	//vale para leer cualquier id
+	//vale para leer cualquier id de un objeto simple 
 	public static int leerId(Scanner scan) {
 
 		System.out.println("Introduce el numero id de la fila que quieres eliminar");
@@ -112,7 +112,7 @@ public class Formulario {
 	
 	public static int leerIdArma(Scanner scan) {
 
-		System.out.println("Introduce el numero id del arma");
+		
 		int idArma= Integer.parseInt(scan.nextLine());
 		
 		return idArma;
@@ -120,23 +120,19 @@ public class Formulario {
 	
 	public static int leerIdEscudo(Scanner scan) {
 		
-		System.out.println("Introduce el numero id del escudo");
 		int idEscudo= Integer.parseInt(scan.nextLine());
 		
 		return idEscudo;
 	}
 	
 	public static int leerIdCaballo(Scanner scan) {
-		
-		System.out.println("Introduce el numero id del caballo");
 		int idCaballo= Integer.parseInt(scan.nextLine());
 		
 		return idCaballo;
 	}
 	
 	public static int leerIdEscudero(Scanner scan) {
-		
-		System.out.println("Introduce el numero id del escudero");
+
 		int idEscudero= Integer.parseInt(scan.nextLine());
 		
 		return idEscudero;
