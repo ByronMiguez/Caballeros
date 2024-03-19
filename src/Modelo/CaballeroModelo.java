@@ -129,5 +129,38 @@ public class CaballeroModelo extends Conector{
 		}
 		return null;
 	}
+	public static Caballero getUnCaballero (int idCaballero ) {
+		
+		String sql ="SELECT * FROM caballeros WHERE Id_caballero=?";
+
+		try {
+			
+			PreparedStatement pst = cn.prepareStatement(sql);
+			
+			pst.setInt(1, idCaballero);
+		
+			ResultSet rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				Caballero unCaballero = new Caballero();
+				unCaballero.setIdCaballero(rs.getInt(1));
+				unCaballero.setNombre(rs.getString(2));
+				unCaballero.setExperiencia(rs.getInt(3));
+				unCaballero.setDanioCaballero(rs.getInt(4));
+				unCaballero.setVelocidadCaballero(rs.getInt(5));
+				unCaballero.setArma(ArmaModelo.getUnArma(rs.getInt(6)));
+				unCaballero.setEscudo(EscudoModelo.getUnEscudo(rs.getInt(7)));
+				unCaballero.setCaballo(CaballoModelo.getUnCaballo(rs.getInt(8)));
+				unCaballero.setEscudero(EscuderoModelo.getUnEscudero(rs.getInt(9)));
+	
+				return unCaballero;
+			}	
+			
+		} catch (SQLException e) {
+			System.out.println("error sql eliminar");
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 }
