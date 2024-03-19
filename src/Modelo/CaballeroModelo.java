@@ -98,5 +98,36 @@ public class CaballeroModelo extends Conector{
 		
 		return null;
 	}
+	
+	public static ArrayList<Caballero> getCaballerosPorArma ( Arma arma ) {
+		
+		ArrayList<Caballero> listaCaballeros = new ArrayList<>();
+
+		String sql ="SELECT * FROM caballeros WHERE Id_arma=?";
+
+		try {
+			
+			PreparedStatement pst = cn.prepareStatement(sql);
+			
+			pst.setInt(1, arma.getIdArma());
+		
+			ResultSet rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				Arma UnArma = new Arma();
+				UnArma.setIdArma(rs.getInt(1));
+				UnArma.setTipo(rs.getString(2));
+				UnArma.setDanio(rs.getInt(3));
+	
+				return listaCaballeros;
+			}
+			
+			
+		} catch (SQLException e) {
+			System.out.println("error sql eliminar");
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 }

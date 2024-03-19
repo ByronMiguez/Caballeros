@@ -38,14 +38,18 @@ public class GestorCaballero {
 				case Menu.DELETE_CABALLERO:
 						CaballeroModelo.conectar();
 						Visor.mensajeDelete();
+						Visor.mostrarCaballeros(CaballeroModelo.selectAllCaballeros());
 						CaballeroModelo.deleteCaballero(Formulario.leerId(scan));
+						Visor.mostrarCaballeros(CaballeroModelo.selectAllCaballeros());
 						Visor.deleteCompletado();
 						CaballeroModelo.cerrar();
 						break;
 				case Menu.UPDATE_CABALLERO:
 						CaballeroModelo.conectar();
 						Visor.mensajeUpdate();
+						Visor.mostrarCaballeros(CaballeroModelo.selectAllCaballeros());
 						CaballeroModelo.updateCaballero(Formulario.leerId(scan), Formulario.leerCaballero(scan));
+						Visor.mostrarCaballeros(CaballeroModelo.selectAllCaballeros());
 						Visor.updateCompletado();
 						CaballeroModelo.cerrar();
 					break;
@@ -54,13 +58,12 @@ public class GestorCaballero {
 						Visor.mensajeSelectAll();
 						Visor.mostrarCaballeros(CaballeroModelo.selectAllCaballeros());
 						CaballeroModelo.cerrar();
+					break;
 				default:
 					break;
 			}
 		
 		} while(opcion!=0);
-		  System.out.println("ADIOS");
-	      scan.close();
 	}
 	
 }

@@ -40,14 +40,18 @@ public class GestorCaballo {
 				case Menu.DELETE_CABALLO:
 						CaballoModelo.conectar();
 						Visor.mensajeDelete();
+						Visor.mostrarCaballos(CaballoModelo.selectAllCaballos());
 						CaballoModelo.deleteCaballo(Formulario.leerId(scan));
+						Visor.mostrarCaballos(CaballoModelo.selectAllCaballos());
 						Visor.deleteCompletado();
 						CaballoModelo.cerrar();
 						break;
 				case Menu.UPDATE_CABALLO:
 						CaballoModelo.conectar();
 						Visor.mensajeUpdate();
+						Visor.mostrarCaballos(CaballoModelo.selectAllCaballos());
 						CaballoModelo.updateCaballo(Formulario.leerId(scan), Formulario.leerCaballo(scan));
+						Visor.mostrarCaballos(CaballoModelo.selectAllCaballos());
 						Visor.updateCompletado();
 						CaballoModelo.cerrar();
 					break;
@@ -56,13 +60,12 @@ public class GestorCaballo {
 						Visor.mensajeSelectAll();
 						Visor.mostrarCaballos(CaballoModelo.selectAllCaballos());
 						CaballoModelo.cerrar();
+					break;
 				default:
 					break;
 			}
 		
 		} while(opcion!=0);
-		  System.out.println("ADIOS");
-	      scan.close();
 	}
 	
 
