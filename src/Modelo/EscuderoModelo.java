@@ -1,12 +1,18 @@
 package Modelo;
 
 import java.sql.PreparedStatement;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import java.sql.SQLException;
+
+import Conector.Conector;
+
 public class EscuderoModelo extends Conector{
+
 	
 	public static void insertEscudero(Escudero escudero) {
 		

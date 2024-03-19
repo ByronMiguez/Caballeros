@@ -2,6 +2,7 @@ package Vista;
 
 public class Menu {
 
+
     // MENÚ GENERAL
     public static final int MENU_ARMA = 1;
     public static final int MENU_ESCUDERO = 2;

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Lucha {
 
+
 	private int id;
 	private Caballero caballero1;
 	private Caballero caballero2;
@@ -57,7 +58,5 @@ public class Lucha {
 		return "Lucha [id=" + id + ", caballero1=" + caballero1 + ", caballero2=" + caballero2 + ", fecha=" + fecha
 				+ ", ganador=" + ganador + "]";
 	}
-	
-	
 	
 }

@@ -148,6 +148,5 @@ public class Caballero {
 				+ ", escudo=" + escudo + ", caballo=" + caballo + ", escudero=" + escudero + "]";
 	}
 	
-	
-	
+
 }

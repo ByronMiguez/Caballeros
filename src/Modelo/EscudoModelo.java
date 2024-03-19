@@ -8,6 +8,9 @@ import java.util.ArrayList;
 
 import Vista.Visor;
 
+import Conector.Conector;
+
+
 public class EscudoModelo extends Conector{
 
 	public static void insertEscudo(Escudo escudo) {

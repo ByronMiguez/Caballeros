@@ -39,4 +39,5 @@ public class Escudo {
 	public String toString() {
 		return "Escudo [idEscudo=" + idEscudo + ", tipo=" + tipo + ", defensa=" + defensa + "]";
 	}
+
 }
