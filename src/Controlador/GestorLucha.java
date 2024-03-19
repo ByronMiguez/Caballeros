@@ -32,7 +32,7 @@ public class GestorLucha {
 						LuchaModelo.conectar();
 						LuchaModelo.cerrar();
 					break;
-				case Menu.LUCHA_RANDOM:
+				case Menu.MOSTRAR_LUCHAS:
 						LuchaModelo.conectar();
 						LuchaModelo.cerrar();
 						break;

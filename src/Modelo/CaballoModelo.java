@@ -34,8 +34,7 @@ public class CaballoModelo extends Conector{
 			pst.execute();
 			
 		} catch (SQLException e) {
-			System.out.println("error sql eliminar");
-			e.printStackTrace();
+			System.out.println("No puedes eliminar el caballo porque hay un caballero usandolo ");
 		}
 	}
 

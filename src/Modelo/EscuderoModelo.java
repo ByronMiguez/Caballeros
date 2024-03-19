@@ -35,8 +35,8 @@ public class EscuderoModelo extends Conector{
 			pst.execute();
 			
 		} catch (SQLException e) {
-			System.out.println("error sql eliminar");
-			e.printStackTrace();
+			System.out.println("No puedes eliminar el escudero porque un caballero lo esta usando ");
+			
 		}
 		
 	}
