@@ -52,6 +52,7 @@ public class GestorLucha {
 						
 						//mostrar el resultado de la lucha en pantalla
 						
+						
 						//guardar el resultado de la lucha en la BBDD gestorBBDD
 						
 						LuchaModelo.cerrar();
