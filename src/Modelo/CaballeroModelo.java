@@ -163,10 +163,4 @@ public class CaballeroModelo extends Conector{
 		return null;
 	}
 
-	public static Caballero getUnCaballero(int idCaballero1) {
-		return null;
-		// TODO Auto-generated method stub
-		
-	}
-
 }
