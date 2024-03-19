@@ -39,14 +39,18 @@ public class GestorEscudero {
 				case Menu.DELETE_ESCUDERO:
 						EscuderoModelo.conectar();
 						Visor.mensajeDelete();
+						Visor.mostrarEscuderos(EscuderoModelo.selectAllEscuderos());
 						EscuderoModelo.deleteEscudero(Formulario.leerId(scan));
+						Visor.mostrarEscuderos(EscuderoModelo.selectAllEscuderos());
 						Visor.deleteCompletado();
 						EscuderoModelo.cerrar();
 						break;
 				case Menu.UPDATE_ESCUDERO:
 						EscuderoModelo.conectar();
 						Visor.mensajeUpdate();
+						Visor.mostrarEscuderos(EscuderoModelo.selectAllEscuderos());
 						EscuderoModelo.updateEscudero(Formulario.leerId(scan), Formulario.leerEscudero(scan));
+						Visor.mostrarEscuderos(EscuderoModelo.selectAllEscuderos());
 						Visor.updateCompletado();
 						EscuderoModelo.cerrar();
 					break;
@@ -55,12 +59,11 @@ public class GestorEscudero {
 						Visor.mensajeSelectAll();
 						Visor.mostrarEscuderos(EscuderoModelo.selectAllEscuderos());
 						EscudoModelo.cerrar();
+					break;
 				default:
 					break;
 			}
 		
 		} while(opcion!=0);
-		  System.out.println("ADIOS");
-	      scan.close();
 		}
 	}

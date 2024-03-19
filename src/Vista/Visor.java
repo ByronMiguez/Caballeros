@@ -35,35 +35,71 @@ public class Visor {
 		System.out.println("Usted ha seleccionado la opción de mostrar todas las filas");	
 	}
 	
+	//Mostrar varios objetos
 	public static void mostrarArmas(ArrayList<Arma> listaArmas) {
 		
+		System.out.println("Lista de Armas:");
+
+		System.out.printf("%-15s%-20s%-20s\n", "Id", "Tipo", "Daño");
+
+        System.out.println("--------------------------------------------------");
+
 		for (Arma arma : listaArmas) {
-			System.out.println(arma);
+			
+            System.out.printf("%-15s%-20s%-20s\n", arma.getIdArma(), arma.getTipo(), arma.getDanio());
+
 		}
+		System.out.println("--------------------------------------------------");
 	}
 
 	public static void mostrarEscudos(ArrayList<Escudo> listaEscudos) {
 		
+		System.out.println("Lista de Escudos:");
+
+		System.out.printf("%-15s%-20s%-20s\n", "Id", "Tipo", "Defensa");
+
+        System.out.println("--------------------------------------------------");
+        
 		for (Escudo escudo : listaEscudos) {
-			System.out.println(escudo);
+            System.out.printf("%-15s%-20s%-20s\n", escudo.getIdEscudo(), escudo.getTipo(), escudo.getDefensa());
 		}
+        System.out.println("--------------------------------------------------");
+
 	}
 	public static void mostrarEscuderos(ArrayList<Escudero> listaEscuderos) {
 		
+		System.out.println("Lista de Escuderos:");
+
+		System.out.printf("%-15s%-20s%-20s\n", "Id", "Nombre", "Experiencia");
+
+        System.out.println("--------------------------------------------------");
+        
 		for (Escudero escudero : listaEscuderos) {
-			System.out.println(escudero);
+            System.out.printf("%-15s%-20s%-20s\n", escudero.getIdEscudero(), escudero.getNombre(), escudero.getExperiencia());
 		}
 	}
 	public static void mostrarCaballos(ArrayList<Caballo> listaCaballos) {
 		
+		System.out.println("Lista de Caballos:");
+
+		System.out.printf("%-15s%-20s%-20s%-20s\n", "Id", "Nombre", "Velocidad", "Resistencia");
+
+        System.out.println("--------------------------------------------------");
+        
 		for (Caballo caballo : listaCaballos) {
-			System.out.println(caballo);
+            System.out.printf("%-15s%-20s%-20s%-20s\n", caballo.getIdCaballo(), caballo.getNombre(), caballo.getVelocidad(), caballo.getResistencia());
 		}
 	}
 	public static void mostrarCaballeros(ArrayList<Caballero> listaCaballeros) {
 		
+		System.out.println("Lista de Caballeros:");
+
+		System.out.printf("%-15s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s\n", "Id", "Nombre", "Experiencia", "Daño", "Velocidad", "Arma", "Escudo", "Caballo", "Escudero");
+
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------");
+        
 		for (Caballero caballero : listaCaballeros) {
-			System.out.println(caballero);
+            System.out.printf("%-15s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s\n", caballero.getIdCaballero(), caballero.getNombre(), caballero.getExperiencia(), caballero.getDanioCaballero(), caballero.getVelocidadCaballero(), caballero.getArma(), caballero.getEscudo(), caballero.getCaballo(), caballero.getEscudero());
 		}
 	}
 }

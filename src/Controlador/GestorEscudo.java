@@ -34,13 +34,17 @@ public class GestorEscudo {
 				case Menu.DELETE_ESCUDO :
 					EscudoModelo.conectar();
 					Visor.mensajeDelete();
+					Visor.mostrarEscudos(EscudoModelo.selectAllEscudos());
 					EscudoModelo.deleteEscudo(Formulario.leerId(scan));
+					Visor.mostrarEscudos(EscudoModelo.selectAllEscudos());
 					EscudoModelo.cerrar();
 				break;
 				case Menu.UPDATE_ESCUDO :
 					EscudoModelo.conectar();
 					Visor.mensajeUpdate();
+					Visor.mostrarEscudos(EscudoModelo.selectAllEscudos());
 					EscudoModelo.updateEscudo(Formulario.leerId(scan), Formulario.leerEscudo(scan));
+					Visor.mostrarEscudos(EscudoModelo.selectAllEscudos());
 					EscudoModelo.cerrar();					
 				break;
 				case Menu.READ_ESCUDO :
@@ -53,7 +57,6 @@ public class GestorEscudo {
 					break;
 				}
 			} while(opcion!=0);
-			
 		}	
 
 }

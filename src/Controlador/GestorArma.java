@@ -36,14 +36,18 @@ public class GestorArma {
 			case Menu.DELETE_ARMA :
 				ArmaModelo.conectar();
 				Visor.mensajeDelete();
+				Visor.mostrarArmas(ArmaModelo.selectAllArmas());
 				ArmaModelo.deleteArma(Formulario.leerId(scan));
+				Visor.mostrarArmas(ArmaModelo.selectAllArmas());
 				Visor.deleteCompletado();
 				ArmaModelo.cerrar();
 			break;
 			case Menu.UPDATE_ARMA :
 				ArmaModelo.conectar();
 				Visor.mensajeUpdate();
+				Visor.mostrarArmas(ArmaModelo.selectAllArmas());
 				ArmaModelo.updateArma(Formulario.leerId(scan), Formulario.leerArma(scan));
+				Visor.mostrarArmas(ArmaModelo.selectAllArmas());
 				Visor.updateCompletado();
 				ArmaModelo.cerrar();					
 			break;
