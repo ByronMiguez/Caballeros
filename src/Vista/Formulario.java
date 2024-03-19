@@ -137,6 +137,14 @@ public class Formulario {
 		
 		return idEscudero;
 	}
+
+	public static void leerCaballeros() {
+		
+		System.out.println("Elige el Primer caballero introduciendo su id");
+		String caballero = scan.nextLine();
+		
+		
+	}
 }
 
 

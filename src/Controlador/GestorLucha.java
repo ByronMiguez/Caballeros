@@ -30,6 +30,8 @@ public class GestorLucha {
 			
 				case Menu.LUCHA_ELIGIENDO:
 						LuchaModelo.conectar();
+						//mostrar caballeros disponibles 
+						Formulario.leerCaballeros();
 						LuchaModelo.cerrar();
 					break;
 				case Menu.LUCHA_RANDOM:
