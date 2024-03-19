@@ -31,7 +31,29 @@ public class GestorLucha {
 				case Menu.LUCHA_ELIGIENDO:
 						LuchaModelo.conectar();
 						//mostrar caballeros disponibles 
-						Formulario.leerCaballeros();
+						Visor.mostrarCaballeros(CaballeroModelo.selectAllCaballeros());
+						
+						//formulario leer id caballero 1
+						int idCaballero1 = Formulario.leerIdCaballero(scan);
+						
+						//formulario leer id caballero 2
+						int idCaballero2 = Formulario.leerIdCaballero(scan);
+						
+						//gestorBDDD
+						
+						//getCaballero1
+						CaballeroModelo.getUnCaballero(idCaballero1);
+						
+						//getCaballero2
+						CaballeroModelo.getUnCaballero(idCaballero2);
+						
+						//realizar la lucha
+						LuchaModelo.calcularGanador(CaballeroModelo.getUnCaballero(idCaballero1), CaballeroModelo.getUnCaballero(idCaballero2));
+						
+						//mostrar el resultado de la lucha en pantalla
+						
+						//guardar el resultado de la lucha en la BBDD gestorBBDD
+						
 						LuchaModelo.cerrar();
 					break;
 				case Menu.LUCHA_RANDOM:
