@@ -142,7 +142,9 @@ public class CaballeroModelo extends Conector{
 			ResultSet rs = pst.executeQuery();
 			
 			while (rs.next()) {
+				
 				Caballero unCaballero = new Caballero();
+				
 				unCaballero.setIdCaballero(rs.getInt(1));
 				unCaballero.setNombre(rs.getString(2));
 				unCaballero.setExperiencia(rs.getInt(3));
@@ -162,11 +164,4 @@ public class CaballeroModelo extends Conector{
 		}
 		return null;
 	}
-
-	public static Caballero getUnCaballero(int idCaballero1) {
-		return null;
-		// TODO Auto-generated method stub
-		
-	}
-
 }
