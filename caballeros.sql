@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-03-2024 a las 10:17:54
+-- Tiempo de generación: 20-03-2024 a las 21:53:29
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -24,26 +24,35 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `arma`
+-- Estructura de tabla para la tabla `armas`
 --
 
-CREATE TABLE `arma` (
+CREATE TABLE `armas` (
+  `Id_arma` int(11) NOT NULL,
   `Tipo` varchar(255) NOT NULL,
-  `daño` int(11) NOT NULL,
-  `Id_arma` int(11) NOT NULL
+  `Danio` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Volcado de datos para la tabla `armas`
+--
+
+INSERT INTO `armas` (`Id_arma`, `Tipo`, `Danio`) VALUES
+(1, 'Espada', 400),
+(4, 'Daga de los cielos', 999),
+(6, 'Arco', 350);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `caballero`
+-- Estructura de tabla para la tabla `caballeros`
 --
 
-CREATE TABLE `caballero` (
+CREATE TABLE `caballeros` (
   `Id_caballero` int(11) NOT NULL,
   `Nombre` varchar(255) NOT NULL,
   `Experiencia` int(11) NOT NULL,
-  `Daño_caballero` int(11) NOT NULL,
+  `Danio_caballero` int(11) NOT NULL,
   `Velocidad_caballero` int(11) NOT NULL,
   `Id_arma` int(11) NOT NULL,
   `Id_escudo` int(11) NOT NULL,
@@ -51,53 +60,89 @@ CREATE TABLE `caballero` (
   `Id_escudero` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+--
+-- Volcado de datos para la tabla `caballeros`
+--
+
+INSERT INTO `caballeros` (`Id_caballero`, `Nombre`, `Experiencia`, `Danio_caballero`, `Velocidad_caballero`, `Id_arma`, `Id_escudo`, `Id_caballo`, `Id_escudero`) VALUES
+(1, 'eñaut', 100, 200, 150, 1, 1, 1, 3),
+(5, 'juanjo', 100, 100, 265, 4, 1, 4, 1),
+(11, 'alberto', 300, 100, 200, 6, 1, 3, 4);
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `caballo`
+-- Estructura de tabla para la tabla `caballos`
 --
 
-CREATE TABLE `caballo` (
+CREATE TABLE `caballos` (
   `Id_caballo` int(11) NOT NULL,
   `Nombre` varchar(255) NOT NULL,
   `Velocidad` int(11) NOT NULL,
   `Resistencia` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+--
+-- Volcado de datos para la tabla `caballos`
+--
+
+INSERT INTO `caballos` (`Id_caballo`, `Nombre`, `Velocidad`, `Resistencia`) VALUES
+(1, 'juan', 22, 12),
+(3, 'cola', 450, 560),
+(4, 'miguelito', 300, 100),
+(5, 'null', 0, 0);
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `escudero`
+-- Estructura de tabla para la tabla `escuderos`
 --
 
-CREATE TABLE `escudero` (
+CREATE TABLE `escuderos` (
   `Id_escudero` int(11) NOT NULL,
   `Nombre` varchar(255) NOT NULL,
   `Experiencia` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+--
+-- Volcado de datos para la tabla `escuderos`
+--
+
+INSERT INTO `escuderos` (`Id_escudero`, `Nombre`, `Experiencia`) VALUES
+(1, 'Unai', 11),
+(2, 'Javi', 49),
+(3, 'paco', 45),
+(4, 'juanjo', 45);
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `escudo`
+-- Estructura de tabla para la tabla `escudos`
 --
 
-CREATE TABLE `escudo` (
+CREATE TABLE `escudos` (
   `Id_escudo` int(11) NOT NULL,
   `Tipo` varchar(255) NOT NULL,
   `Defensa` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+--
+-- Volcado de datos para la tabla `escudos`
+--
+
+INSERT INTO `escudos` (`Id_escudo`, `Tipo`, `Defensa`) VALUES
+(1, 'grande', 200);
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `lucha`
+-- Estructura de tabla para la tabla `luchas`
 --
 
-CREATE TABLE `lucha` (
+CREATE TABLE `luchas` (
   `Id` int(11) NOT NULL,
   `Id_caballero1` int(11) NOT NULL,
-  `id_caballero2` int(11) NOT NULL,
+  `Id_caballero2` int(11) NOT NULL,
   `Fecha` date NOT NULL,
   `Ganador` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
@@ -107,103 +152,110 @@ CREATE TABLE `lucha` (
 --
 
 --
--- Indices de la tabla `arma`
+-- Indices de la tabla `armas`
 --
-ALTER TABLE `arma`
+ALTER TABLE `armas`
   ADD PRIMARY KEY (`Id_arma`);
 
 --
--- Indices de la tabla `caballero`
+-- Indices de la tabla `caballeros`
 --
-ALTER TABLE `caballero`
+ALTER TABLE `caballeros`
   ADD PRIMARY KEY (`Id_caballero`),
+  ADD UNIQUE KEY `Id_caballo_2` (`Id_caballo`),
+  ADD UNIQUE KEY `Id_escudero_2` (`Id_escudero`),
+  ADD UNIQUE KEY `Id_caballo` (`Id_caballo`) USING BTREE,
+  ADD UNIQUE KEY `Id_escudero` (`Id_escudero`) USING BTREE,
   ADD KEY `Id_arma` (`Id_arma`),
-  ADD KEY `Id_escudo` (`Id_escudo`),
-  ADD KEY `Id_caballo` (`Id_caballo`),
-  ADD KEY `Id_escudero` (`Id_escudero`);
+  ADD KEY `Id_escudo` (`Id_escudo`);
 
 --
--- Indices de la tabla `caballo`
+-- Indices de la tabla `caballos`
 --
-ALTER TABLE `caballo`
+ALTER TABLE `caballos`
   ADD PRIMARY KEY (`Id_caballo`);
 
 --
--- Indices de la tabla `escudero`
+-- Indices de la tabla `escuderos`
 --
-ALTER TABLE `escudero`
+ALTER TABLE `escuderos`
   ADD PRIMARY KEY (`Id_escudero`);
 
 --
--- Indices de la tabla `escudo`
+-- Indices de la tabla `escudos`
 --
-ALTER TABLE `escudo`
+ALTER TABLE `escudos`
   ADD PRIMARY KEY (`Id_escudo`);
 
 --
--- Indices de la tabla `lucha`
+-- Indices de la tabla `luchas`
 --
-ALTER TABLE `lucha`
-  ADD PRIMARY KEY (`Id`,`Id_caballero1`,`id_caballero2`,`Fecha`),
-  ADD KEY `Id_caballero1` (`Id_caballero1`,`id_caballero2`),
-  ADD KEY `fk_lucha_caballero2` (`id_caballero2`);
+ALTER TABLE `luchas`
+  ADD PRIMARY KEY (`Id`,`Id_caballero1`,`Id_caballero2`,`Fecha`),
+  ADD KEY `Id_caballero1` (`Id_caballero1`,`Id_caballero2`),
+  ADD KEY `fk_lucha_caballero2` (`Id_caballero2`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `arma`
+-- AUTO_INCREMENT de la tabla `armas`
 --
-ALTER TABLE `arma`
-  MODIFY `Id_arma` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `armas`
+  MODIFY `Id_arma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de la tabla `caballero`
+-- AUTO_INCREMENT de la tabla `caballeros`
 --
-ALTER TABLE `caballero`
-  MODIFY `Id_caballero` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `caballeros`
+  MODIFY `Id_caballero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT de la tabla `caballo`
+-- AUTO_INCREMENT de la tabla `caballos`
 --
-ALTER TABLE `caballo`
-  MODIFY `Id_caballo` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `caballos`
+  MODIFY `Id_caballo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de la tabla `escudero`
+-- AUTO_INCREMENT de la tabla `escuderos`
 --
-ALTER TABLE `escudero`
-  MODIFY `Id_escudero` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `escuderos`
+  MODIFY `Id_escudero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `escudo`
+-- AUTO_INCREMENT de la tabla `escudos`
 --
-ALTER TABLE `escudo`
-  MODIFY `Id_escudo` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `escudos`
+  MODIFY `Id_escudo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `luchas`
+--
+ALTER TABLE `luchas`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `caballero`
+-- Filtros para la tabla `caballeros`
 --
-ALTER TABLE `caballero`
-  ADD CONSTRAINT `fk_caballero_arma` FOREIGN KEY (`Id_arma`) REFERENCES `arma` (`id_arma`),
-  ADD CONSTRAINT `fk_caballero_caballo` FOREIGN KEY (`Id_caballo`) REFERENCES `caballo` (`Id_caballo`),
-  ADD CONSTRAINT `fk_caballero_escudero` FOREIGN KEY (`Id_escudero`) REFERENCES `escudero` (`Id_Escudero`),
-  ADD CONSTRAINT `fk_caballero_escudo` FOREIGN KEY (`Id_escudo`) REFERENCES `escudo` (`Id_escudo`);
+ALTER TABLE `caballeros`
+  ADD CONSTRAINT `fk_caballero_arma` FOREIGN KEY (`Id_arma`) REFERENCES `armas` (`Id_arma`),
+  ADD CONSTRAINT `fk_caballero_caballo` FOREIGN KEY (`Id_caballo`) REFERENCES `caballos` (`Id_caballo`),
+  ADD CONSTRAINT `fk_caballero_escudero` FOREIGN KEY (`Id_escudero`) REFERENCES `escuderos` (`Id_escudero`),
+  ADD CONSTRAINT `fk_caballero_escudo` FOREIGN KEY (`Id_escudo`) REFERENCES `escudos` (`Id_escudo`);
 
 --
--- Filtros para la tabla `lucha`
+-- Filtros para la tabla `luchas`
 --
-ALTER TABLE `lucha`
-  ADD CONSTRAINT `fk_lucha_caballero1` FOREIGN KEY (`Id_caballero1`) REFERENCES `caballero` (`Id_caballero`),
-  ADD CONSTRAINT `fk_lucha_caballero2` FOREIGN KEY (`id_caballero2`) REFERENCES `caballero` (`Id_caballero`);
+ALTER TABLE `luchas`
+  ADD CONSTRAINT `fk_lucha_caballero1` FOREIGN KEY (`Id_caballero1`) REFERENCES `caballeros` (`Id_caballero`),
+  ADD CONSTRAINT `fk_lucha_caballero2` FOREIGN KEY (`Id_caballero2`) REFERENCES `caballeros` (`Id_caballero`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-

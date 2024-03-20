@@ -127,10 +127,20 @@ public class Visor {
         System.out.println("--------------------------------------------------------------------------------------------------------------------------");
     
 	}
-	public static void mensajeVictoria(Caballero ganador) {
+	public static void mensajeResultado(Caballero resultado) {
 		
-		System.out.println("¡Enhorabuena " + ganador.getNombre() + " es el ganador de esta batalla!");
+		if(resultado.getIdCaballero()!=0) {
+		
+		System.out.println("¡Enhorabuena " + resultado.getNombre() + " es el ganador de esta batalla!");
 		System.out.println("¡Gracias por participar!");
+		System.out.println("--------------------------------------------------------------------------------------------------------------------------");
+		
+		} else {
+	
+		System.out.println("La lucha ha acabado en EMPATE, vuelve a intentar para GANAR");
+		System.out.println("--------------------------------------------------------------------------------------------------------------------------");
+		
+		}
 	}
 
 }

@@ -65,6 +65,7 @@ public class Menu {
         System.out.printf("%d. Eliminar un arma\n", DELETE_ARMA);
         System.out.printf("%d. Actualizar información de un arma\n", UPDATE_ARMA);
         System.out.printf("%d. Ver armas disponibles\n", READ_ARMA);
+        System.out.printf("%d. Salir\n", SALIR);
     }
 
     public static void menuEscudero() {
@@ -73,6 +74,7 @@ public class Menu {
         System.out.printf("%d. Despedir un escudero\n", DELETE_ESCUDERO);
         System.out.printf("%d. Actualizar información de un escudero\n", UPDATE_ESCUDERO);
         System.out.printf("%d. Ver escuderos disponibles\n", READ_ESCUDERO);
+        System.out.printf("%d. Salir\n", SALIR);
     }
 
     public static void menuCaballero() {
@@ -81,6 +83,7 @@ public class Menu {
         System.out.printf("%d. Despedir un caballero\n", DELETE_CABALLERO);
         System.out.printf("%d. Actualizar información de un caballero\n", UPDATE_CABALLERO);
         System.out.printf("%d. Ver caballeros disponibles\n", READ_CABALLERO);
+        System.out.printf("%d. Salir\n", SALIR);
     }
 
     public static void menuCaballo() {
@@ -89,6 +92,7 @@ public class Menu {
         System.out.printf("%d. Vender un caballo\n", DELETE_CABALLO);
         System.out.printf("%d. Actualizar información de un caballo\n", UPDATE_CABALLO);
         System.out.printf("%d. Ver caballos disponibles\n", READ_CABALLO);
+        System.out.printf("%d. Salir\n", SALIR);
     }
 
     public static void menuEscudo() {
@@ -97,11 +101,13 @@ public class Menu {
         System.out.printf("%d. Vender un escudo\n", DELETE_ESCUDO);
         System.out.printf("%d. Actualizar información de un escudo\n", UPDATE_ESCUDO);
         System.out.printf("%d. Ver escudos disponibles\n", READ_ESCUDO);
+        System.out.printf("%d. Salir\n", SALIR);
     }
 
     public static void menuLucha() {
         System.out.println("\n------------- SIMULACIÓN DE LUCHAS -------------");
         System.out.printf("%d. Elegir dos caballeros para una lucha\n", LUCHA_ELIGIENDO);
         System.out.printf("%d. Mostrar las luchas disponibles\n", MOSTRAR_LUCHAS);
+        System.out.printf("%d. Salir\n", SALIR);
     }
 }

@@ -35,30 +35,29 @@ public class GestorLucha {
 						Visor.bienvenidaLucha();
 						Visor.mostrarCaballeros(CaballeroModelo.selectAllCaballeros());
 						do {
+							
 							idCaballero1 = Formulario.leerIdCaballero(scan);
 							idCaballero2 = Formulario.leerIdCaballero(scan);
 							
 						}while(idCaballero1==idCaballero2);
-						Caballero ganador = new Caballero();
-						ganador = LuchaModelo.calcularGanador(CaballeroModelo.getUnCaballero(idCaballero1), CaballeroModelo.getUnCaballero(idCaballero2));
-						Visor.mensajeVictoria(ganador);
+						Caballero resultado = new Caballero();
+						resultado = LuchaModelo.calcularGanador(CaballeroModelo.getUnCaballero(idCaballero1), CaballeroModelo.getUnCaballero(idCaballero2));
+						Visor.mensajeResultado(resultado);
 						CaballeroModelo.cerrar();
 						LuchaModelo.cerrar();
 					break;
+
 				case Menu.MOSTRAR_LUCHAS:
 						CaballeroModelo.conectar();
 						LuchaModelo.conectar();
 						Visor.mostrarLuchas(LuchaModelo.selectAllLuchas());
 						CaballeroModelo.cerrar();
 						LuchaModelo.cerrar();
-						break;
+				break;
 				default:
 					break;
-			}
-		
+			}	
 		} while(opcion!=0);
-		  System.out.println("ADIOS");
-	      scan.close();
 	}
 }
 	
