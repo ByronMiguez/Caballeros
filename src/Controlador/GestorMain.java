@@ -1,4 +1,5 @@
-package Controlador;import java.util.Scanner;
+package Controlador;import java.time.LocalDateTime;
+import java.util.Scanner;
 
 import Vista.Menu;
 
@@ -9,7 +10,7 @@ public class GestorMain {
 		}
 
 	private static void run() {
-		
+
 		Scanner scan = new Scanner(System.in);
 		int opcion;
 		
