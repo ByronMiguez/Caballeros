@@ -55,6 +55,9 @@ public class Formulario {
 		
 		return escudero;
 	}
+
+	
+	
 	public static Caballero leerCaballero(Scanner scan) {
 		
 		Caballero caballero = new Caballero();
@@ -136,6 +139,15 @@ public class Formulario {
 		int idEscudero= Integer.parseInt(scan.nextLine());
 		
 		return idEscudero;
+	}
+
+	public static int leerIdCaballero(Scanner scan) {
+		
+		System.out.println("Elige el caballero para luchar introduciendo su id");
+		int idCaballero = Integer.parseInt(scan.nextLine());
+	
+		return idCaballero;
+	
 	}
 }
 
