@@ -46,17 +46,17 @@ public class LuchaModelo extends Conector {
 	}
 	
 	public static void insertLucha(Caballero caballero1, Caballero caballero2, Caballero ganador) {
-		String sql = "insert into luchas(Id, Caballero1, Caballero2, Fecha, Ganador) VALUES (?, ?, ?, ?, ?)";
+		String sql = "insert into luchas(Id_caballero1, Id_caballero2, Fecha, Ganador) VALUES (?, ?, ?, ?)";
 	
 		try {
 			PreparedStatement pst = cn.prepareStatement(sql);
 			Date fecha = new Date();
-			SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+			SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
 			
-			pst.setInt(2, caballero1.getIdCaballero());
-			pst.setInt(3, caballero2.getIdCaballero());
-			pst.setString(4, formato.format(fecha));
-			pst.setInt(5, (ganador.getIdCaballero()));
+			pst.setInt(1, caballero1.getIdCaballero());
+			pst.setInt(2, caballero2.getIdCaballero());
+			pst.setString(3, formato.format(fecha));
+			pst.setInt(4, (ganador.getIdCaballero()));
 			pst.execute();
 		} 	
 			catch (SQLException e) {

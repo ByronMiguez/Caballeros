@@ -24,34 +24,32 @@ public class GestorLucha {
 		
 		do {
 			Menu.menuLucha();
-			
 			System.out.println("Ingrese su opcion");
-			
 			opcion= Integer.parseInt(scan.nextLine());
 			
 			switch (opcion) {
 			
 				case Menu.LUCHA_ELIGIENDO:
 						CaballeroModelo.conectar();
-						
+						LuchaModelo.conectar();
 						Visor.bienvenidaLucha();
 						Visor.mostrarCaballeros(CaballeroModelo.selectAllCaballeros());
-						
-						idCaballero1 = Formulario.leerIdCaballero(scan);
 						do {
+							idCaballero1 = Formulario.leerIdCaballero(scan);
 							idCaballero2 = Formulario.leerIdCaballero(scan);
 							
-						}while(idCaballero2==idCaballero1);
-						
+						}while(idCaballero1==idCaballero2);
 						Caballero ganador = new Caballero();
 						ganador = LuchaModelo.calcularGanador(CaballeroModelo.getUnCaballero(idCaballero1), CaballeroModelo.getUnCaballero(idCaballero2));
 						Visor.mensajeVictoria(ganador);
-						
 						CaballeroModelo.cerrar();
+						LuchaModelo.cerrar();
 					break;
 				case Menu.MOSTRAR_LUCHAS:
+						CaballeroModelo.conectar();
 						LuchaModelo.conectar();
 						Visor.mostrarLuchas(LuchaModelo.selectAllLuchas());
+						CaballeroModelo.cerrar();
 						LuchaModelo.cerrar();
 						break;
 				default:

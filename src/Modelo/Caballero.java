@@ -33,14 +33,13 @@ public class Caballero {
 	
 	public double getFuerzaLucha() {
 		
-		double danioLucha;
 		double fuerzaLucha;
+		double azar= Math.random();
+
+		double danioLucha = danioCaballero+arma.getDanio();
+		//double resistencia = 
 		
-		//sumar daño caballero, daño de arma, para calcular daño de caballero
-		danioLucha = danioCaballero+arma.getDanio();
-		
-		//la fuerza se calcula con el daño de lucha *0.8
-		fuerzaLucha = danioLucha*Math.random()/10;
+		fuerzaLucha = danioLucha*azar/10;
 	
 		return fuerzaLucha;	
 	}

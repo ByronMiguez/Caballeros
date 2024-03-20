@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import Modelo.Arma;
 import Modelo.Caballero;
+import Modelo.CaballeroModelo;
 import Modelo.Caballo;
 import Modelo.Escudero;
 import Modelo.Escudo;
@@ -106,22 +107,29 @@ public class Visor {
 
 	}
 	public static void bienvenidaLucha() {
-
+		
 		System.out.println("¡Bienvenido a la Lucha de Caballeros!");
         System.out.println("Prepárate para enfrentarte a emocionantes batallas llenas de honor y valentía.");
         System.out.println("Que la fuerza esté contigo en esta épica contienda.");
+        System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 	
 	}
 	public static void mostrarLuchas(ArrayList<Lucha> selectAllLuchas) {
-
-		for (Lucha lucha : selectAllLuchas) {
-			System.out.println(lucha);
-		}
 		
+		System.out.println("Historial de Luchas:");
+        System.out.printf("%-15s%-20s%-20s%-20s%-20s\n", "Id", "Caballero 1", "Caballero 2", "Fecha", "Ganador");
+        System.out.println("--------------------------------------------------------------------------------------------------------------------------");
+
+        for (Lucha lucha : selectAllLuchas) {
+            System.out.printf("%-15s%-20s%-20s%-20s%-20s\n", lucha.getId(), lucha.getCaballero1().getNombre(), lucha.getCaballero2().getNombre(), lucha.getFecha(), CaballeroModelo.getUnCaballero(Integer.parseInt(lucha.getGanador())).getNombre());
+        }
+
+        System.out.println("--------------------------------------------------------------------------------------------------------------------------");
+    
 	}
 	public static void mensajeVictoria(Caballero ganador) {
 		
-		System.out.println("¡Enhorabuena " +ganador.getNombre()+ " es el ganador de esta batalla!");
+		System.out.println("¡Enhorabuena " + ganador.getNombre() + " es el ganador de esta batalla!");
 		System.out.println("¡Gracias por participar!");
 	}
 
