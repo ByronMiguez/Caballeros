@@ -6,14 +6,16 @@ public class Arma {
 	private String tipo;
 	private int danio;
 	
-
 	public Arma() {
 		
 	}
 	
 	public Arma(String tipo, int danio, int idArma) {
+
 		this.tipo = tipo;
+
 		this.danio = danio;
+
 		this.idArma = idArma;
 	}
 
@@ -33,6 +35,7 @@ public class Arma {
 		this.danio = danio;
 	}
 
+
 	public int getIdArma() {
 		return idArma;
 	}
@@ -47,6 +50,6 @@ public class Arma {
 				+ ", getDanio()=" + getDanio() + ", getIdArma()=" + getIdArma() + ", getClass()=" + getClass()
 				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
-	
 
+	
 }

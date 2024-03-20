@@ -1,6 +1,7 @@
 package Modelo;
 
 public class Escudero {
+
 	
 	private int idEscudero;
 	private String nombre;

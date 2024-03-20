@@ -96,10 +96,13 @@ public class Visor {
 
 		System.out.printf("%-15s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s\n", "Id", "Nombre", "Experiencia", "Daño", "Velocidad", "Arma", "Escudo", "Caballo", "Escudero");
 
-        System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         
 		for (Caballero caballero : listaCaballeros) {
-            System.out.printf("%-15s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s\n", caballero.getIdCaballero(), caballero.getNombre(), caballero.getExperiencia(), caballero.getDanioCaballero(), caballero.getVelocidadCaballero(), caballero.getArma(), caballero.getEscudo(), caballero.getCaballo(), caballero.getEscudero());
+            System.out.printf("%-15s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s\n", caballero.getIdCaballero(), caballero.getNombre(), caballero.getExperiencia(), caballero.getDanioCaballero(), caballero.getVelocidadCaballero(), caballero.getArma().getTipo(), caballero.getEscudo().getTipo(), caballero.getCaballo().getNombre(), caballero.getEscudero().getNombre());
 		}
+		System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
 	}
+
 }

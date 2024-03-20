@@ -1,5 +1,6 @@
 package Modelo;
 
+
 public class LuchaModelo extends Conector {
 	
 	public static Caballero calcularGanador(Caballero caballero1, Caballero caballero2) {
@@ -26,7 +27,5 @@ public class LuchaModelo extends Conector {
 		}
 	
 	}
-	
-	
 	
 }
