@@ -31,6 +31,7 @@ public class LuchaModelo extends Conector {
 	
 	}
 	
+
 	public static void aumentarValores(Caballero ganador) {
 		
 		//Aumentar los atributos del ganador
@@ -93,6 +94,5 @@ public class LuchaModelo extends Conector {
 		
 		return null;
 	}
-	
 	
 }

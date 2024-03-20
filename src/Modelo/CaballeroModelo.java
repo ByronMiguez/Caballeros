@@ -1,10 +1,13 @@
 package Modelo;
 
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
+import Conector.Conector;
 
 public class CaballeroModelo extends Conector{
 
@@ -84,8 +87,8 @@ public class CaballeroModelo extends Conector{
 				caballero.setVelocidadCaballero(rs.getInt(5));
 				caballero.setArma(ArmaModelo.getUnArma(rs.getInt(6)));
 				caballero.setEscudo(EscudoModelo.getUnEscudo(rs.getInt(7)));
-				caballero.setCaballo(CaballoModelo.getUnCaballo(rs.getInt(7)));
-				caballero.setEscudero(EscuderoModelo.getUnEscudero(rs.getInt(7)));
+				caballero.setCaballo(CaballoModelo.getUnCaballo(rs.getInt(8)));
+				caballero.setEscudero(EscuderoModelo.getUnEscudero(rs.getInt(9)));
 				
 				listaCaballeros.add(caballero);
 			}

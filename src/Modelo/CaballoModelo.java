@@ -1,10 +1,14 @@
 package Modelo;
 
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
+import Conector.Conector;
+
 
 public class CaballoModelo extends Conector{
 
@@ -34,8 +38,7 @@ public class CaballoModelo extends Conector{
 			pst.execute();
 			
 		} catch (SQLException e) {
-			System.out.println("error sql eliminar");
-			e.printStackTrace();
+			System.out.println("No puedes eliminar el caballo porque hay un caballero usandolo ");
 		}
 	}
 
