@@ -1,11 +1,11 @@
 package Modelo;
 
-import java.sql.Date;
+import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDateTime;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class LuchaModelo extends Conector {
@@ -46,15 +46,16 @@ public class LuchaModelo extends Conector {
 	//por hacer 
 	public static void insertLucha (Caballero caballero1, Caballero caballero2) {
 		String sql = "insert into luchas (Id, Caballero1, Caballero2, Fecha, Ganador) VALUES (?, ?, ?, ?, ?)";
-		
+	
 		try {
 			PreparedStatement pst = cn.prepareStatement(sql);
+			Date fecha = new Date();
+			SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 			
 			pst.setInt(2, caballero1.getIdCaballero());
 			pst.setInt(3, caballero2.getIdCaballero());
-			pst.setDate(4, LocalDateTime.now());
-			pst.setString(5, calcularGanador(caballero1, caballero2));
-			
+			pst.setString(4, formato.format(fecha));
+			pst.setInt(5, (calcularGanador(caballero1, caballero2).getIdCaballero()));
 			pst.execute();
 		} 	
 			catch (SQLException e) {
@@ -62,6 +63,7 @@ public class LuchaModelo extends Conector {
 			e.printStackTrace();
 		}
 	}
+	
 	
 	public static ArrayList<Lucha> selectAllLuchas() {
 		ArrayList<Lucha> listaLuchas = new ArrayList<>();
