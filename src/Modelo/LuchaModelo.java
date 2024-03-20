@@ -11,26 +11,27 @@ import java.util.ArrayList;
 public class LuchaModelo extends Conector {
 	
 	public static Caballero calcularGanador(Caballero caballero1, Caballero caballero2) {
-		
-		//devuelve el ganador calculando 
+
 		if (caballero1.getFuerzaLucha()-caballero2.getFuerzaLucha()>10) {
 		
-			System.out.println(caballero1.getNombre()+ " Es el ganador de esta batalla");
+			System.out.println(caballero1.getNombre()+ " es el ganador de esta batalla");
+			aumentarValores(caballero1);
+			insertLucha(caballero1, caballero2, caballero1);
 			return caballero1;
 			
 		} else if (caballero2.getFuerzaLucha()-caballero1.getFuerzaLucha()<10) {
 			
-			System.out.println(caballero2.getNombre()+ " Es el ganador de esta batalla");
+			System.out.println(caballero2.getNombre()+ " es el ganador de esta batalla");
+			aumentarValores(caballero2);
+			insertLucha(caballero1, caballero2, caballero1);
 			return caballero2;
 			
 		} else {
 			
-			System.out.println(" La lucha ha acabado en empate");
+			System.out.println("La lucha ha acabado en empate");
 			return null;
 		}
-	
 	}
-	
 
 	public static void aumentarValores(Caballero ganador) {
 		
@@ -44,9 +45,8 @@ public class LuchaModelo extends Conector {
 	
 	}
 	
-	//por hacer 
-	public static void insertLucha (Caballero caballero1, Caballero caballero2) {
-		String sql = "insert into luchas (Id, Caballero1, Caballero2, Fecha, Ganador) VALUES (?, ?, ?, ?, ?)";
+	public static void insertLucha(Caballero caballero1, Caballero caballero2, Caballero ganador) {
+		String sql = "insert into luchas(Id, Caballero1, Caballero2, Fecha, Ganador) VALUES (?, ?, ?, ?, ?)";
 	
 		try {
 			PreparedStatement pst = cn.prepareStatement(sql);
@@ -56,7 +56,7 @@ public class LuchaModelo extends Conector {
 			pst.setInt(2, caballero1.getIdCaballero());
 			pst.setInt(3, caballero2.getIdCaballero());
 			pst.setString(4, formato.format(fecha));
-			pst.setInt(5, (calcularGanador(caballero1, caballero2).getIdCaballero()));
+			pst.setInt(5, (ganador.getIdCaballero()));
 			pst.execute();
 		} 	
 			catch (SQLException e) {

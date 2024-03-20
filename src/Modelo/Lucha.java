@@ -52,7 +52,6 @@ public class Lucha {
 		this.ganador = ganador;
 	}
 	
-	
 	@Override
 	public String toString() {
 		return "Lucha [id=" + id + ", caballero1=" + caballero1 + ", caballero2=" + caballero2 + ", fecha=" + fecha

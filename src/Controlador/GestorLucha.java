@@ -2,6 +2,7 @@ package Controlador;
 
 import java.util.Scanner;
 
+import Modelo.Caballero;
 import Modelo.CaballeroModelo;
 import Modelo.LuchaModelo;
 import Vista.Formulario;
@@ -18,6 +19,8 @@ public class GestorLucha {
 	
 		Scanner scan = new Scanner(System.in);
 		int opcion;
+		int idCaballero1;
+		int idCaballero2;
 		
 		do {
 			Menu.menuLucha();
@@ -29,36 +32,26 @@ public class GestorLucha {
 			switch (opcion) {
 			
 				case Menu.LUCHA_ELIGIENDO:
-						LuchaModelo.conectar();
-						//Visor ->mensaje para la bienvenida
+						CaballeroModelo.conectar();
 						
-						//mostrar caballeros disponibles 
+						Visor.bienvenidaLucha();
 						Visor.mostrarCaballeros(CaballeroModelo.selectAllCaballeros());
 						
-						//formulario leer id caballero 1
-						int idCaballero1 = Formulario.leerIdCaballero(scan);
+						idCaballero1 = Formulario.leerIdCaballero(scan);
+						do {
+							idCaballero2 = Formulario.leerIdCaballero(scan);
+							
+						}while(idCaballero2==idCaballero1);
 						
-						//formulario leer id caballero 2
-						int idCaballero2 = Formulario.leerIdCaballero(scan);
+						Caballero ganador = new Caballero();
+						ganador = LuchaModelo.calcularGanador(CaballeroModelo.getUnCaballero(idCaballero1), CaballeroModelo.getUnCaballero(idCaballero2));
+						Visor.mensajeVictoria(ganador);
 						
-						//getCaballero1
-						CaballeroModelo.getUnCaballero(idCaballero1);
-						
-						//getCaballero2
-						CaballeroModelo.getUnCaballero(idCaballero2);
-						
-						//realizar la lucha
-						LuchaModelo.aumentarValores(LuchaModelo.calcularGanador(CaballeroModelo.getUnCaballero(idCaballero1), CaballeroModelo.getUnCaballero(idCaballero2)));
-						
-						//Visor ->mostrar el resultado de la lucha en pantalla
-						
-						//guardar el resultado de la lucha en la BBDD gestorBBDD
-
-						LuchaModelo.cerrar();
-					
+						CaballeroModelo.cerrar();
 					break;
 				case Menu.MOSTRAR_LUCHAS:
 						LuchaModelo.conectar();
+						Visor.mostrarLuchas(LuchaModelo.selectAllLuchas());
 						LuchaModelo.cerrar();
 						break;
 				default:
