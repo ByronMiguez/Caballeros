@@ -39,7 +39,7 @@ public class GestorCaballero {
 						CaballeroModelo.conectar();
 						Visor.mensajeDelete();
 						Visor.mostrarCaballeros(CaballeroModelo.selectAllCaballeros());
-						CaballeroModelo.deleteCaballero(Formulario.leerId(scan));
+						CaballeroModelo.deleteCaballero(Formulario.leerIdCaballero(scan));
 						Visor.mostrarCaballeros(CaballeroModelo.selectAllCaballeros());
 						Visor.deleteCompletado();
 						CaballeroModelo.cerrar();
@@ -48,7 +48,7 @@ public class GestorCaballero {
 						CaballeroModelo.conectar();
 						Visor.mensajeUpdate();
 						Visor.mostrarCaballeros(CaballeroModelo.selectAllCaballeros());
-						CaballeroModelo.updateCaballero(Formulario.leerId(scan), Formulario.leerCaballero(scan));
+						CaballeroModelo.updateCaballero(Formulario.leerIdCaballero(scan), Formulario.leerCaballero(scan));
 						Visor.mostrarCaballeros(CaballeroModelo.selectAllCaballeros());
 						Visor.updateCompletado();
 						CaballeroModelo.cerrar();

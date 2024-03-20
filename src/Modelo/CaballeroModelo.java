@@ -28,8 +28,8 @@ public class CaballeroModelo extends Conector{
 			pst.execute();
 		} 	
 			catch (SQLException e) {
-			System.out.println("Error en la Query");
-			e.printStackTrace();
+			System.out.println("El escudero o el caballo ya esta en uso, introduce otro por favor");
+
 		}
 	}
 

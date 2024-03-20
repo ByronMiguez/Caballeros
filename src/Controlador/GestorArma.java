@@ -37,7 +37,7 @@ public class GestorArma {
 				ArmaModelo.conectar();
 				Visor.mensajeDelete();
 				Visor.mostrarArmas(ArmaModelo.selectAllArmas());
-				ArmaModelo.deleteArma(Formulario.leerId(scan));
+				ArmaModelo.deleteArma(Formulario.leerIdArma(scan));
 				Visor.mostrarArmas(ArmaModelo.selectAllArmas());
 				Visor.deleteCompletado();
 				ArmaModelo.cerrar();
@@ -46,7 +46,7 @@ public class GestorArma {
 				ArmaModelo.conectar();
 				Visor.mensajeUpdate();
 				Visor.mostrarArmas(ArmaModelo.selectAllArmas());
-				ArmaModelo.updateArma(Formulario.leerId(scan), Formulario.leerArma(scan));
+				ArmaModelo.updateArma(Formulario.leerIdArma(scan), Formulario.leerArma(scan));
 				Visor.mostrarArmas(ArmaModelo.selectAllArmas());
 				Visor.updateCompletado();
 				ArmaModelo.cerrar();					
@@ -61,6 +61,5 @@ public class GestorArma {
 				break;
 			}
 		} while(opcion!=0);
-		
 	}	
 }

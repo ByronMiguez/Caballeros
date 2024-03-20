@@ -41,7 +41,7 @@ public class GestorCaballo {
 						CaballoModelo.conectar();
 						Visor.mensajeDelete();
 						Visor.mostrarCaballos(CaballoModelo.selectAllCaballos());
-						CaballoModelo.deleteCaballo(Formulario.leerId(scan));
+						CaballoModelo.deleteCaballo(Formulario.leerIdCaballo(scan));
 						Visor.mostrarCaballos(CaballoModelo.selectAllCaballos());
 						Visor.deleteCompletado();
 						CaballoModelo.cerrar();
@@ -50,7 +50,7 @@ public class GestorCaballo {
 						CaballoModelo.conectar();
 						Visor.mensajeUpdate();
 						Visor.mostrarCaballos(CaballoModelo.selectAllCaballos());
-						CaballoModelo.updateCaballo(Formulario.leerId(scan), Formulario.leerCaballo(scan));
+						CaballoModelo.updateCaballo(Formulario.leerIdCaballo(scan), Formulario.leerCaballo(scan));
 						Visor.mostrarCaballos(CaballoModelo.selectAllCaballos());
 						Visor.updateCompletado();
 						CaballoModelo.cerrar();
