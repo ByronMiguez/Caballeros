@@ -30,8 +30,6 @@ public class LuchaModelo extends Conector {
 		}
 	
 	}
-	
-
 	public static void aumentarValores(Caballero ganador) {
 		
 		//Aumentar los atributos del ganador
@@ -60,8 +58,7 @@ public class LuchaModelo extends Conector {
 			pst.execute();
 		} 	
 			catch (SQLException e) {
-			System.out.println("Error en la Query");
-			e.printStackTrace();
+			System.out.println("El caballero no puede luchar contra si mismo");
 		}
 	}
 	

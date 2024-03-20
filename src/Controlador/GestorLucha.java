@@ -3,6 +3,7 @@ package Controlador;
 import java.util.Scanner;
 
 import Modelo.CaballeroModelo;
+import Modelo.Lucha;
 import Modelo.LuchaModelo;
 import Vista.Formulario;
 import Vista.Menu;

@@ -32,8 +32,9 @@ public class GestorEscudero {
 				case Menu.INSERT_ESCUDERO:
 						EscuderoModelo.conectar();
 						Visor.mensajeInsert();
+						Visor.mostrarEscuderos(EscuderoModelo.selectAllEscuderos());
 						EscuderoModelo.insertEscudero(Formulario.leerEscudero(scan));
-						Visor.insertCompletado();
+						Visor.mostrarEscuderos(EscuderoModelo.selectAllEscuderos());
 						EscuderoModelo.cerrar();
 					break;
 				case Menu.DELETE_ESCUDERO:
@@ -42,7 +43,6 @@ public class GestorEscudero {
 						Visor.mostrarEscuderos(EscuderoModelo.selectAllEscuderos());
 						EscuderoModelo.deleteEscudero(Formulario.leerIdEscudero(scan));
 						Visor.mostrarEscuderos(EscuderoModelo.selectAllEscuderos());
-						Visor.deleteCompletado();
 						EscuderoModelo.cerrar();
 						break;
 				case Menu.UPDATE_ESCUDERO:
@@ -51,7 +51,6 @@ public class GestorEscudero {
 						Visor.mostrarEscuderos(EscuderoModelo.selectAllEscuderos());
 						EscuderoModelo.updateEscudero(Formulario.leerIdEscudero(scan), Formulario.leerEscudero(scan));
 						Visor.mostrarEscuderos(EscuderoModelo.selectAllEscuderos());
-						Visor.updateCompletado();
 						EscuderoModelo.cerrar();
 					break;
 				case Menu.READ_ESCUDERO:

@@ -33,8 +33,9 @@ public class GestorCaballo {
 				case Menu.INSERT_CABALLO:
 						CaballoModelo.conectar();
 						Visor.mensajeInsert();
+						Visor.mostrarCaballos(CaballoModelo.selectAllCaballos());
 						CaballoModelo.insertCaballo(Formulario.leerCaballo(scan));
-						Visor.insertCompletado();
+						Visor.mostrarCaballos(CaballoModelo.selectAllCaballos());
 						CaballoModelo.cerrar();
 					break;
 				case Menu.DELETE_CABALLO:
@@ -43,7 +44,6 @@ public class GestorCaballo {
 						Visor.mostrarCaballos(CaballoModelo.selectAllCaballos());
 						CaballoModelo.deleteCaballo(Formulario.leerIdCaballo(scan));
 						Visor.mostrarCaballos(CaballoModelo.selectAllCaballos());
-						Visor.deleteCompletado();
 						CaballoModelo.cerrar();
 						break;
 				case Menu.UPDATE_CABALLO:
@@ -52,7 +52,6 @@ public class GestorCaballo {
 						Visor.mostrarCaballos(CaballoModelo.selectAllCaballos());
 						CaballoModelo.updateCaballo(Formulario.leerIdCaballo(scan), Formulario.leerCaballo(scan));
 						Visor.mostrarCaballos(CaballoModelo.selectAllCaballos());
-						Visor.updateCompletado();
 						CaballoModelo.cerrar();
 					break;
 				case Menu.READ_CABALLO:
