@@ -8,7 +8,7 @@ public class Conector {
 	
 	public static  Connection cn;
 	private static final String HOST="localhost";
-	private static final String BBDD="caballero";
+	private static final String BBDD="caballeros";
 	private static final String USER="root";
 	private static final String PASSWORD="";
 	
