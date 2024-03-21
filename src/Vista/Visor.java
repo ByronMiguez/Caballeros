@@ -116,29 +116,42 @@ public class Visor {
 	}
 	public static void mostrarLuchas(ArrayList<Lucha> selectAllLuchas) {
 		
+		String resultado = "";
+		
 		System.out.println("Historial de Luchas:");
         System.out.printf("%-15s%-20s%-20s%-20s%-20s\n", "Id", "Caballero 1", "Caballero 2", "Fecha", "Ganador");
         System.out.println("--------------------------------------------------------------------------------------------------------------------------");
 
         for (Lucha lucha : selectAllLuchas) {
-            System.out.printf("%-15s%-20s%-20s%-20s%-20s\n", lucha.getId(), lucha.getCaballero1().getNombre(), lucha.getCaballero2().getNombre(), lucha.getFecha(), CaballeroModelo.getUnCaballero(Integer.parseInt(lucha.getGanador())).getNombre());
+        	
+    		if (lucha.getGanador()==0) {
+    			resultado="empate";
+    			
+    		} else {
+    			
+    			resultado=CaballeroModelo.getUnCaballero(lucha.getGanador()).getNombre();
+    		}
+    		
+            System.out.printf("%-15s%-20s%-20s%-20s%-20s\n", lucha.getId(), lucha.getCaballero1().getNombre(), lucha.getCaballero2().getNombre(), lucha.getFecha(), resultado);
         }
 
         System.out.println("--------------------------------------------------------------------------------------------------------------------------");
     
 	}
-	public static void mensajeResultado(Caballero resultado) {
+	public static void mensajeResultado(Caballero caballero) {
 		
-		if(resultado.getIdCaballero()!=0) {
+		String resultado = caballero.getResultado();
 		
-		System.out.println("¡Enhorabuena " + resultado.getNombre() + " es el ganador de esta batalla!");
-		System.out.println("¡Gracias por participar!");
-		System.out.println("--------------------------------------------------------------------------------------------------------------------------");
+		if(!resultado.equalsIgnoreCase("empate")) {
+			
+			System.out.println("¡Enhorabuena " + caballero.getNombre() + " es el ganador de esta batalla!");
+			System.out.println("¡Gracias por participar!");
+			System.out.println("--------------------------------------------------------------------------------------------------------------------------");
 		
 		} else {
-	
-		System.out.println("La lucha ha acabado en EMPATE, vuelve a intentar para GANAR");
-		System.out.println("--------------------------------------------------------------------------------------------------------------------------");
+		
+			System.out.println("La lucha ha acabado en EMPATE, vuelve a intentarlo para obtener un GANADOR");
+			System.out.println("--------------------------------------------------------------------------------------------------------------------------");
 		
 		}
 	}

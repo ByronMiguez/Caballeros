@@ -11,6 +11,7 @@ public class Caballero {
 	private Escudo escudo;
 	private Caballo caballo;
 	private Escudero escudero;
+	private String resultado;
 	
 	public Caballero(){
 		
@@ -31,7 +32,7 @@ public class Caballero {
 	
 	public double getFuerzaLucha() {
 		
-		double azar= Math.random()*10+1;
+		double azar=Math.random()*10+1;
 		double danioLucha = danioCaballero+arma.getDanio();
 		double resistencia = escudo.getDefensa()+caballo.getResistencia()+caballo.getResistencia();
 		double fuerzaLucha = danioLucha+resistencia+azar/10;
@@ -109,6 +110,14 @@ public class Caballero {
 
 	public void setEscudero(Escudero escudero) {
 		this.escudero = escudero;
+	}
+	
+	public String getResultado() {
+		return resultado;
+	}
+
+	public void setResultado(String resultado) {
+		this.resultado = resultado;
 	}
 
 	@Override

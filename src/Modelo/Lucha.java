@@ -9,12 +9,12 @@ public class Lucha {
 	private Caballero caballero1;
 	private Caballero caballero2;
 	private Date fecha;
-	private String ganador;
+	private int ganador;
 	
 	public Lucha() {
 		
 	}
-	public Lucha(int id, Caballero caballero1, Caballero caballero2, Date fecha, String ganador) {
+	public Lucha(int id, Caballero caballero1, Caballero caballero2, Date fecha, int ganador) {
 		this.id = id;
 		this.caballero1 = caballero1;
 		this.caballero2 = caballero2;
@@ -45,11 +45,11 @@ public class Lucha {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-	public String getGanador() {
+	public int getGanador() {
 		return ganador;
 	}
-	public void setGanador(String ganador) {
-		this.ganador = ganador;
+	public void setGanador(int i) {
+		this.ganador = i;
 	}
 	
 	@Override

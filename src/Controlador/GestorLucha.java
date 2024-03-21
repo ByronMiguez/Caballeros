@@ -32,6 +32,7 @@ public class GestorLucha {
 				case Menu.LUCHA_ELIGIENDO:
 						CaballeroModelo.conectar();
 						LuchaModelo.conectar();
+						
 						Visor.bienvenidaLucha();
 						Visor.mostrarCaballeros(CaballeroModelo.selectAllCaballeros());
 						do {
@@ -43,6 +44,7 @@ public class GestorLucha {
 						Caballero resultado = new Caballero();
 						resultado = LuchaModelo.calcularGanador(CaballeroModelo.getUnCaballero(idCaballero1), CaballeroModelo.getUnCaballero(idCaballero2));
 						Visor.mensajeResultado(resultado);
+						
 						CaballeroModelo.cerrar();
 						LuchaModelo.cerrar();
 					break;
