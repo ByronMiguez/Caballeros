@@ -15,22 +15,13 @@ public class Visor {
 	public static void mensajeInsert() {
 		System.out.println("Usted ha seleccionado la opción de Insertar una nueva fila");	
 	}
-	public static void insertCompletado() {
-		System.out.println("El objeto ha sido insertada");	
-	}
 	
 	public static void mensajeDelete() {
 		System.out.println("Usted ha seleccionado la opción de Eliminar la fila del id dado");	
 	}
-	public static void deleteCompletado() {
-		System.out.println("El objeto ha sido eliminado");	
-	}
 	
 	public static void mensajeUpdate() {
 		System.out.println("Usted ha seleccionado la opción de modificar toda la información del id introducido");	
-	}
-	public static void updateCompletado() {
-		System.out.println("El objeto ha sido modificado");	
 	}
 	
 	public static void mensajeSelectAll() {
@@ -78,6 +69,8 @@ public class Visor {
 		for (Escudero escudero : listaEscuderos) {
             System.out.printf("%-15s%-20s%-20s\n", escudero.getIdEscudero(), escudero.getNombre(), escudero.getExperiencia());
 		}
+        System.out.println("--------------------------------------------------");
+
 	}
 	public static void mostrarCaballos(ArrayList<Caballo> listaCaballos) {
 		
@@ -85,11 +78,13 @@ public class Visor {
 
 		System.out.printf("%-15s%-20s%-20s%-20s\n", "Id", "Nombre", "Velocidad", "Resistencia");
 
-        System.out.println("--------------------------------------------------");
+        System.out.println("--------------------------------------------------------------------");
         
 		for (Caballo caballo : listaCaballos) {
             System.out.printf("%-15s%-20s%-20s%-20s\n", caballo.getIdCaballo(), caballo.getNombre(), caballo.getVelocidad(), caballo.getResistencia());
 		}
+        System.out.println("--------------------------------------------------------------------");
+
 	}
 	public static void mostrarCaballeros(ArrayList<Caballero> listaCaballeros) {
 		

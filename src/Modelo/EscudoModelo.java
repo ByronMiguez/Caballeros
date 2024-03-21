@@ -54,7 +54,6 @@ public class EscudoModelo extends Conector{
 			pst.setInt(2, escudo.getDefensa());
 			pst.setInt(3, id);
 			pst.execute();
-			Visor.updateCompletado();
 			
 		} catch (SQLException e) {
 			System.out.println("error sql modificar");
