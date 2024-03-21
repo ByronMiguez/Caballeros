@@ -34,7 +34,7 @@ public class Caballero {
 		
 		double azar=Math.random()*10+1;
 		double danioLucha = danioCaballero+arma.getDanio();
-		double resistencia = escudo.getDefensa()+caballo.getResistencia()+caballo.getResistencia();
+		double resistencia = escudo.getDefensa()+caballo.getResistencia()+experiencia;
 		double fuerzaLucha = danioLucha+resistencia+azar/10;
 		
 		return fuerzaLucha;	

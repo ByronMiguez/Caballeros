@@ -37,7 +37,6 @@ public class Visor {
 		System.out.println("Usted ha seleccionado la opción de mostrar todas las filas");	
 	}
 	
-	//Mostrar varios objetos
 	public static void mostrarArmas(ArrayList<Arma> listaArmas) {
 		
 		System.out.println("Lista de Armas:");
@@ -112,6 +111,8 @@ public class Visor {
         System.out.println("Prepárate para enfrentarte a emocionantes batallas llenas de honor y valentía.");
         System.out.println("Que la fuerza esté contigo en esta épica contienda.");
         System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        
+        mostrarCaballeros(CaballeroModelo.selectAllCaballeros());
 	
 	}
 	public static void mostrarLuchas(ArrayList<Lucha> selectAllLuchas) {

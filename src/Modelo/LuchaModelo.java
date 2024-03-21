@@ -34,19 +34,17 @@ public class LuchaModelo extends Conector {
 			insertLucha(caballero1, caballero2);
 			
 		}
-		
 		return caballero1;
-		
-		}
+	}
 	
-
 	public static void aumentarValores(Caballero ganador) {
 
 		ganador.setExperiencia(ganador.getExperiencia()+25);
 		ganador.setDanioCaballero(ganador.getDanioCaballero()+5);
 		ganador.setVelocidadCaballero(ganador.getVelocidadCaballero()+5);
 		ganador.getEscudero().setExperiencia(ganador.getEscudero().getExperiencia()+25);
-	}
+		
+		}
 	
 	
 	public static void insertLucha(Caballero ganador, Caballero perdedor) {
