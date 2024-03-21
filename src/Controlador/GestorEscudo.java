@@ -28,14 +28,16 @@ public class GestorEscudo {
 				case Menu.INSERT_ESCUDO:
 					EscudoModelo.conectar();
 					Visor.mensajeInsert();
+					Visor.mostrarEscudos(EscudoModelo.selectAllEscudos());
 					EscudoModelo.insertEscudo(Formulario.leerEscudo(scan));
+					Visor.mostrarEscudos(EscudoModelo.selectAllEscudos());
 					EscudoModelo.cerrar();
 				break;
 				case Menu.DELETE_ESCUDO :
 					EscudoModelo.conectar();
 					Visor.mensajeDelete();
 					Visor.mostrarEscudos(EscudoModelo.selectAllEscudos());
-					EscudoModelo.deleteEscudo(Formulario.leerId(scan));
+					EscudoModelo.deleteEscudo(Formulario.leerIdEscudo(scan));
 					Visor.mostrarEscudos(EscudoModelo.selectAllEscudos());
 					EscudoModelo.cerrar();
 				break;
@@ -43,7 +45,7 @@ public class GestorEscudo {
 					EscudoModelo.conectar();
 					Visor.mensajeUpdate();
 					Visor.mostrarEscudos(EscudoModelo.selectAllEscudos());
-					EscudoModelo.updateEscudo(Formulario.leerId(scan), Formulario.leerEscudo(scan));
+					EscudoModelo.updateEscudo(Formulario.leerIdEscudo(scan), Formulario.leerEscudo(scan));
 					Visor.mostrarEscudos(EscudoModelo.selectAllEscudos());
 					EscudoModelo.cerrar();					
 				break;

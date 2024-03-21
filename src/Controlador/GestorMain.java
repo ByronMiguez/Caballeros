@@ -9,7 +9,7 @@ public class GestorMain {
 		}
 
 	private static void run() {
-		
+
 		Scanner scan = new Scanner(System.in);
 		int opcion;
 		

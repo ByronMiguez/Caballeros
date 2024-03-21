@@ -1,12 +1,18 @@
 package Modelo;
 
 import java.sql.PreparedStatement;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import java.sql.SQLException;
+
+import Conector.Conector;
+
 public class EscuderoModelo extends Conector{
+
 	
 	public static void insertEscudero(Escudero escudero) {
 		
@@ -35,8 +41,8 @@ public class EscuderoModelo extends Conector{
 			pst.execute();
 			
 		} catch (SQLException e) {
-			System.out.println("error sql eliminar");
-			e.printStackTrace();
+			System.out.println("No puedes eliminar el escudero porque un caballero lo esta usando ");
+			
 		}
 		
 	}

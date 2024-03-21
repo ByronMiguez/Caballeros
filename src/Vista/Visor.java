@@ -4,9 +4,11 @@ import java.util.ArrayList;
 
 import Modelo.Arma;
 import Modelo.Caballero;
+import Modelo.CaballeroModelo;
 import Modelo.Caballo;
 import Modelo.Escudero;
 import Modelo.Escudo;
+import Modelo.Lucha;
 
 public class Visor {
 	
@@ -96,10 +98,62 @@ public class Visor {
 
 		System.out.printf("%-15s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s\n", "Id", "Nombre", "Experiencia", "Daño", "Velocidad", "Arma", "Escudo", "Caballo", "Escudero");
 
-        System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         
 		for (Caballero caballero : listaCaballeros) {
-            System.out.printf("%-15s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s\n", caballero.getIdCaballero(), caballero.getNombre(), caballero.getExperiencia(), caballero.getDanioCaballero(), caballero.getVelocidadCaballero(), caballero.getArma(), caballero.getEscudo(), caballero.getCaballo(), caballero.getEscudero());
+            System.out.printf("%-15s%-20s%-20s%-20s%-20s%-20s%-20s%-20s%-20s\n", caballero.getIdCaballero(), caballero.getNombre(), caballero.getExperiencia(), caballero.getDanioCaballero(), caballero.getVelocidadCaballero(), caballero.getArma().getTipo(), caballero.getEscudo().getTipo(), caballero.getCaballo().getNombre(), caballero.getEscudero().getNombre());
+		}
+		System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+	}
+	public static void bienvenidaLucha() {
+		
+		System.out.println("¡Bienvenido a la Lucha de Caballeros!");
+        System.out.println("Prepárate para enfrentarte a emocionantes batallas llenas de honor y valentía.");
+        System.out.println("Que la fuerza esté contigo en esta épica contienda.");
+        System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+	
+	}
+	public static void mostrarLuchas(ArrayList<Lucha> selectAllLuchas) {
+		
+		String resultado = "";
+		
+		System.out.println("Historial de Luchas:");
+        System.out.printf("%-15s%-20s%-20s%-20s%-20s\n", "Id", "Caballero 1", "Caballero 2", "Fecha", "Ganador");
+        System.out.println("--------------------------------------------------------------------------------------------------------------------------");
+
+        for (Lucha lucha : selectAllLuchas) {
+        	
+    		if (lucha.getGanador()==0) {
+    			resultado="empate";
+    			
+    		} else {
+    			
+    			resultado=CaballeroModelo.getUnCaballero(lucha.getGanador()).getNombre();
+    		}
+    		
+            System.out.printf("%-15s%-20s%-20s%-20s%-20s\n", lucha.getId(), lucha.getCaballero1().getNombre(), lucha.getCaballero2().getNombre(), lucha.getFecha(), resultado);
+        }
+
+        System.out.println("--------------------------------------------------------------------------------------------------------------------------");
+    
+	}
+	public static void mensajeResultado(Caballero caballero) {
+		
+		String resultado = caballero.getResultado();
+		
+		if(!resultado.equalsIgnoreCase("empate")) {
+			
+			System.out.println("¡Enhorabuena " + caballero.getNombre() + " es el ganador de esta batalla!");
+			System.out.println("¡Gracias por participar!");
+			System.out.println("--------------------------------------------------------------------------------------------------------------------------");
+		
+		} else {
+		
+			System.out.println("La lucha ha acabado en EMPATE, vuelve a intentarlo para obtener un GANADOR");
+			System.out.println("--------------------------------------------------------------------------------------------------------------------------");
+		
 		}
 	}
+
 }

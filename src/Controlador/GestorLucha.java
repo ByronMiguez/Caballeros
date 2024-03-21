@@ -2,6 +2,7 @@ package Controlador;
 
 import java.util.Scanner;
 
+import Modelo.Caballero;
 import Modelo.CaballeroModelo;
 import Modelo.LuchaModelo;
 import Vista.Formulario;
@@ -18,56 +19,47 @@ public class GestorLucha {
 	
 		Scanner scan = new Scanner(System.in);
 		int opcion;
+		int idCaballero1;
+		int idCaballero2;
 		
 		do {
 			Menu.menuLucha();
-			
 			System.out.println("Ingrese su opcion");
-			
 			opcion= Integer.parseInt(scan.nextLine());
 			
 			switch (opcion) {
 			
 				case Menu.LUCHA_ELIGIENDO:
+						CaballeroModelo.conectar();
 						LuchaModelo.conectar();
-						//mostrar caballeros disponibles 
+						
+						Visor.bienvenidaLucha();
 						Visor.mostrarCaballeros(CaballeroModelo.selectAllCaballeros());
+						do {
+							
+							idCaballero1 = Formulario.leerIdCaballero(scan);
+							idCaballero2 = Formulario.leerIdCaballero(scan);
+							
+						}while(idCaballero1==idCaballero2);
+						Caballero resultado = new Caballero();
+						resultado = LuchaModelo.calcularGanador(CaballeroModelo.getUnCaballero(idCaballero1), CaballeroModelo.getUnCaballero(idCaballero2));
+						Visor.mensajeResultado(resultado);
 						
-						//formulario leer id caballero 1
-						int idCaballero1 = Formulario.leerIdCaballero(scan);
-						
-						//formulario leer id caballero 2
-						int idCaballero2 = Formulario.leerIdCaballero(scan);
-						
-						//gestorBDDD
-						
-						//getCaballero1
-						CaballeroModelo.getUnCaballero(idCaballero1);
-						
-						//getCaballero2
-						CaballeroModelo.getUnCaballero(idCaballero2);
-						
-						//realizar la lucha
-						LuchaModelo.calcularGanador(CaballeroModelo.getUnCaballero(idCaballero1), CaballeroModelo.getUnCaballero(idCaballero2));
-						
-						//mostrar el resultado de la lucha en pantalla
-						
-						
-						//guardar el resultado de la lucha en la BBDD gestorBBDD
-						
+						CaballeroModelo.cerrar();
 						LuchaModelo.cerrar();
 					break;
-				case Menu.LUCHA_RANDOM:
+
+				case Menu.MOSTRAR_LUCHAS:
+						CaballeroModelo.conectar();
 						LuchaModelo.conectar();
+						Visor.mostrarLuchas(LuchaModelo.selectAllLuchas());
+						CaballeroModelo.cerrar();
 						LuchaModelo.cerrar();
-						break;
+				break;
 				default:
 					break;
-			}
-		
+			}	
 		} while(opcion!=0);
-		  System.out.println("ADIOS");
-	      scan.close();
 	}
 }
 	
